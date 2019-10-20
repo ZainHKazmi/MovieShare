@@ -36,7 +36,7 @@ class Login extends React.Component {
               </div>
             </MuiThemeProvider>
             <br/>
-            <Link to={'./Home'}> { /* This element will link the URL path to /queue */ }
+            <Link to={'./home'}> { /* This element will link the URL path to /queue */ }
                 <button style = { style }>
                     sign in
                 </button>

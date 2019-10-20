@@ -10,6 +10,7 @@ class Profile extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
+
   }
 
   render() {
