@@ -15,7 +15,8 @@ class Home extends React.Component {
   // Allows us to keep track of changing data in this component.
   state = {
     posts: [
-        {recommendedBy: "Jim", movieName: "Avengers", rating: "3"},
+        {recommendedBy: "Jim", movieName: "The Avengers", rating: "3"},
+        {recommendedBy: "Tim", movieName: "Avatar", rating: "1"},
     ]
   }
 
