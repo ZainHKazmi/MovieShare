@@ -104,7 +104,7 @@ class Home extends React.Component {
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
-                addPost={ this.addStudent }
+                addPost={ this.addPost }
             />
             {/*Makes the feed using the posts*/}
             <div>
@@ -112,9 +112,6 @@ class Home extends React.Component {
             </div>
             {/* Write post */}
             {/* Posts */}
-            <PostList posts = {this.state.posts}
-                    addRating = {this.addRating}
-            />
             
         </div>
     );
