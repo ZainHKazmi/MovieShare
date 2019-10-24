@@ -30,7 +30,7 @@ class Post extends React.Component {
             </Card.Description>
             <Button onClick={this.props.addPost} primary>Post</Button>
             <span>
-              <Rating icon='star' defaultRating={0} maxRating={5} onRate={this.handleRate} />
+              <Rating icon='star' defaultRating={0} maxRating={5} onRate={this.props.handleRate} />
             </span>
           </Card.Content>
        </Card>
