@@ -15,6 +15,7 @@ class Home extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
+    // These are the posts, right now its hard coded but in the future we need to flood this array with the user's friends posts
     posts : [
       {
         date: '4 days ago',
@@ -59,6 +60,8 @@ class Home extends React.Component {
             <Header as='h1' style = {headerStyle}>
               User's Feed
             </Header>
+
+            {/*Makes the feed using the posts*/}
             <div>
               <Feed style = {feedStyle} events={this.state.posts} />
             </div>
@@ -80,9 +83,10 @@ const feedStyle = {
 }
 
 const headerStyle = {
-  color: 'teal', 
+  color: '#FE8FB8', 
   textAlign: 'center',
   lineHeight: 2,
-  fontSize: '50px'
+  fontSize: '50px',
+  background: '#B7D8FE',
 }
 export default Home;
