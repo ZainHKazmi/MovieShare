@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Rating } from 'semantic-ui-css'
+import { Card, Button, Rating } from 'semantic-ui-react'
 
 
 /* Component for the List of Students */
@@ -16,14 +16,14 @@ class Post extends React.Component {
             <Card.Header>What have you recently watched?</Card.Header>
             <Card.Meta> 
               <input name='imgLink' 
-                    value={ this.prop.movieLink } 
+                    value={ this.props.movieLink } 
                     onChange={this.props.handleChange} 
                     type="text" 
                     placeholder="Image Link" />
             </Card.Meta>
             <Card.Description>
               <input name='movieTitle' 
-                      value={ this.prop.movieTitle } 
+                      value={ this.props.movieTitle } 
                       onChange={this.props.handleChange} 
                       type="text" 
                       placeholder="Movie Title" />
