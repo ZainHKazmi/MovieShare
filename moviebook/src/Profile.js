@@ -44,8 +44,8 @@ class Profile extends React.Component {
                 <h3>Friends</h3>
                 <Avatar style={useStyles.friends} src="/tim.png"/>
                 <h3>Statistics</h3>
-                <pre>Movies rated: 3 <br/>
-                  Average score: 3.75</pre>
+                <pre>Movies rated: 2 <br/>
+                  Average score: 3.5</pre>
               </div>
               <Link to={'./'}> 
                   <Button>Log out</Button>
