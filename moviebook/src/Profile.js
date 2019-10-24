@@ -3,7 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import { Grid, Avatar, Container, Divider } from '@material-ui/core'
-import {Feed, Header, Rating} from 'semantic-ui-react'
+import {Feed, Button, Rating} from 'semantic-ui-react'
+
 
 
 class Profile extends React.Component {
@@ -52,7 +53,14 @@ class Profile extends React.Component {
                 <pre>Movies rated: 3 <br/>
                   Average score: 3.75</pre>
               </div>
+              <Link to={'./'}> 
+                  <Button>Log out</Button>
+                </Link>
+                <Link to={'./home'}> 
+                  <Button>My Feed</Button>
+                </Link>
             </Grid>
+
             <Grid item xs={7} style={useStyles.colStyle}>
               <div style={{margin: 10}}>
                 <h3>Johnny's Recommendations</h3>

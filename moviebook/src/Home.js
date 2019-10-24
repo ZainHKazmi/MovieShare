@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
@@ -46,7 +45,8 @@ class Home extends React.Component {
       },
     ],
 
-    username: `${this.props.location.state.username}`
+    // username: `${this.props.location.state.username}`
+    username: 'Johnny'
   }
   
   
@@ -97,6 +97,14 @@ class Home extends React.Component {
             {/* Header */}
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
+              <Button.Group floated="right">
+                <Link to={'./'}> 
+                  <Button>Log out</Button>
+                </Link>
+                <Link to={'./profile'}> 
+                  <Button>Profile</Button>
+                </Link>
+              </Button.Group>
             </Header>
 
             <Post
