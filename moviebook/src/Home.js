@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
-import {Feed, Header, Rating} from 'semantic-ui-react'
+import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
 // import components
-import PostList from './PostList';
+import PostList from './PostList'
+import Post from './Post'
 import Login from './Login'
 
 
@@ -15,6 +16,11 @@ class Home extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
+    movieTitle: "",
+    movieLink: "",
+    userRating: 0,
+    userPic: '/jim.jpg',
+    date: 'Today',
     // These are the posts, right now its hard coded but in the future we need to flood this array with the user's friends posts
     posts : [
       {
@@ -45,13 +51,44 @@ class Home extends React.Component {
   
   
   addPost = () => {
+    const postList = this.state.posts
+    const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
 
+    const newPost = {
+      date: this.state.date,
+      image: this.userPic,
+      meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
+      summary: newSummary,
+      extraImages: [this.state.movieLink]
+    }
+
+    postList.unshift(newPost)
+
+    this.setState({
+      posts: postList
+    });
+    
   }
 
   addRating = (movie) => {
 
   }
   
+  handleInputChange = (event) => {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+    
+    // 'this' is bound to the component in this arrow function.
+    this.setState({
+      [name]: value  // [name] sets the object property name to the value of the 'name' variable.
+    })
+
+  }
+
+  handleRate = (e, { rating }) => 
+      this.setState({ userRating: rating 
+      })
 
   render() {
     return (
@@ -62,6 +99,13 @@ class Home extends React.Component {
               {this.state.username}'s Feed
             </Header>
 
+            <Post
+                movieTitle={this.movieTitle}
+                movieLink={this.movieLink}
+                handleChange={ this.handleInputChange } 
+                handleRate= {this.handleRate}
+                addPost={ this.addStudent }
+            />
             {/*Makes the feed using the posts*/}
             <div>
               <Feed style = {feedStyle} events={this.state.posts} />
