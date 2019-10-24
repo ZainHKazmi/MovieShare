@@ -79,7 +79,9 @@ class Home extends React.Component {
 const feedStyle = {
   position: 'relative',
   size: 'large',
-  left: '25%'
+  left: '27.5%',
+  background: '#FAF1F6',
+  width: '45%'
 }
 
 const headerStyle = {
