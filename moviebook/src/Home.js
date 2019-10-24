@@ -17,9 +17,9 @@ class Home extends React.Component {
   // Allows us to keep track of changing data in this component.
   state = {
     movieTitle: "",
-    movieLink: "",
+    movieLink: 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png',
     userRating: 0,
-    userPic: '/jim.jpg',
+    userPic: 'https://i.stack.imgur.com/34AD2.jpg',
     date: 'Today',
     // These are the posts, right now its hard coded but in the future we need to flood this array with the user's friends posts
     posts : [
@@ -48,7 +48,7 @@ class Home extends React.Component {
 
     username: `${this.props.location.state.username}`
   }
-  
+
   
   addPost = () => {
     const postList = this.state.posts
@@ -56,10 +56,10 @@ class Home extends React.Component {
 
     const newPost = {
       date: this.state.date,
-      image: this.userPic,
+      image: this.state.userPic,
       meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
       summary: newSummary,
-      extraImages: [this.state.movieLink]
+      extraImages: [`${this.state.movieLink}`]
     }
 
     postList.unshift(newPost)
@@ -98,14 +98,15 @@ class Home extends React.Component {
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
             </Header>
-
-            <Post
+            <div style = {postStyle}>
+            <Post 
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
                 addPost={ this.addPost }
             />
+            </div>
             {/*Makes the feed using the posts*/}
             <div>
               <Feed style = {feedStyle} events={this.state.posts} />
@@ -117,7 +118,6 @@ class Home extends React.Component {
     );
   }
 }
-
 const feedStyle = {
   position: 'relative',
   size: 'large',
@@ -132,5 +132,10 @@ const headerStyle = {
   lineHeight: 2,
   fontSize: '50px',
   background: '#B7D8FE',
+}
+
+const postStyle = {
+  position: 'relative',
+  left: '42.5%',
 }
 export default Home;
