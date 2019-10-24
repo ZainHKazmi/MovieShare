@@ -42,6 +42,7 @@ class Profile extends React.Component {
           <Container maxWidth="xl">
           <Grid container justify="space-evenly">
             <Grid item xs={4} style={useStyles.colStyle} >
+              <div style={{margin: 10}}>
                 <Avatar style={useStyles.avatar} src="/johnson.jpg"/>
                 <h1>Johnny Johnson</h1>
                 <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
@@ -50,9 +51,10 @@ class Profile extends React.Component {
                 <h3>Statistics</h3>
                 <pre>Movies rated: 3 <br/>
                   Average score: 3.75</pre>
+              </div>
             </Grid>
             <Grid item xs={7} style={useStyles.colStyle}>
-              {/* <Paper className='paper' style={{backgroundColor: '#f3f3f3'}}> */}
+              <div style={{margin: 10}}>
                 <h3>Johnny's Recommendations</h3>
                 <Divider orientation="horizontal"/>
                 <br/>
@@ -75,6 +77,7 @@ class Profile extends React.Component {
                       See All
                   </button>
                 </Link>
+              </div>
             </Grid>
           </Grid>
           </Container>
