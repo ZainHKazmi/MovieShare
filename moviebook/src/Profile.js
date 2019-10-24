@@ -15,16 +15,16 @@ class Profile extends React.Component {
     recommendations: [
       {
         date: '4 days ago',
-        image: '/jim.jpg',
+        image: '/johnson.jpg',
         meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
-        summary: 'Jim recommended the Avengers',
+        summary: 'Johnny recommended the Avengers',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       },
       {
         date: '2 weeks ago',
         image: '/johnson.jpg',
         meta: <Rating defaultRating={4} maxRating={5} disabled /> ,
-        summary: 'Johnson recommended Guardians of the Galaxy',
+        summary: 'Johnny recommended Guardians of the Galaxy',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
       },
     ],
