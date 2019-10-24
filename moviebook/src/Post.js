@@ -14,13 +14,6 @@ class Post extends React.Component {
         <Card>
           <Card.Content>
             <Card.Header>What have you recently watched?</Card.Header>
-            <Card.Meta> 
-              <input name='imgLink' 
-                    value={ this.props.movieLink } 
-                    onChange={this.props.handleChange} 
-                    type="text" 
-                    placeholder="Image Link" />
-            </Card.Meta>
             <Card.Description>
               <input name='movieTitle' 
                       value={ this.props.movieTitle } 
