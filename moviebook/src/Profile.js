@@ -14,25 +14,19 @@ class Profile extends React.Component {
   state = {
     recommendations: [
       {
-        date: '4 days ago',
-        image: '/johnson.jpg',
         meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
-        summary: 'Johnny recommended the Avengers',
+        summary: 'The Avengers',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       },
       {
-        date: '2 weeks ago',
-        image: '/johnson.jpg',
         meta: <Rating defaultRating={4} maxRating={5} disabled /> ,
-        summary: 'Johnny recommended Guardians of the Galaxy',
+        summary: 'Guardians of the Galaxy',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
       },
     ],
     watchlater: [{
         date: '1 month ago',
-        image: '/tim.png',
-        meta: <Rating defaultRating={1} maxRating={5} disabled /> ,
-        summary: 'Tim recommended Avatar',
+        summary: 'Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
       }]
 }
@@ -63,7 +57,7 @@ class Profile extends React.Component {
 
             <Grid item xs={7} style={useStyles.colStyle}>
               <div style={{margin: 10}}>
-                <h3>Johnny's Recommendations</h3>
+                <h3>My MovieBook</h3>
                 <Divider orientation="horizontal"/>
                 <br/>
                 <div>
