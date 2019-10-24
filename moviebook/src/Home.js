@@ -5,9 +5,9 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import {Feed, Header, Rating} from 'semantic-ui-react'
-
 // import components
 import PostList from './PostList';
+import Login from './Login'
 
 
 class Home extends React.Component {
@@ -38,9 +38,10 @@ class Home extends React.Component {
         summary: 'Tim recommended Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
       },
-    ]
+    ],
+
+    username: `${this.props.location.state.username}`
   }
-  
   
   
   addPost = () => {
@@ -58,7 +59,7 @@ class Home extends React.Component {
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
             <Header as='h1' style = {headerStyle}>
-              User's Feed
+              {this.state.username}'s Feed
             </Header>
 
             {/*Makes the feed using the posts*/}
