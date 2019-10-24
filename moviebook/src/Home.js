@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
+import {Feed, Header, Rating} from 'semantic-ui-react'
 
 // import components
 import PostList from './PostList';
@@ -14,12 +15,33 @@ class Home extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
-    posts: [
-        {recommendedBy: "Jim", movieName: "The Avengers", rating: "3"},
-        {recommendedBy: "Tim", movieName: "Avatar", rating: "1"},
+    posts : [
+      {
+        date: '4 days ago',
+        image: '/jim.jpg',
+        meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
+        summary: 'Jim recommended the Avengers',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
+      },
+      {
+        date: '2 weeks ago',
+        image: '/johnson.jpg',
+        meta: <Rating defaultRating={4} maxRating={5} disabled /> ,
+        summary: 'Johnson recommended Guardians of the Galaxy',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
+      },
+      {
+        date: '1 month ago',
+        image: '/tim.png',
+        meta: <Rating defaultRating={1} maxRating={5} disabled /> ,
+        summary: 'Tim recommended Avatar',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
+      },
     ]
   }
-
+  
+  
+  
   addPost = () => {
 
   }
@@ -34,9 +56,13 @@ class Home extends React.Component {
         <div>
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
-
+            <Header as='h1' style = {headerStyle}>
+              User's Feed
+            </Header>
+            <div>
+              <Feed style = {feedStyle} events={this.state.posts} />
+            </div>
             {/* Write post */}
-
             {/* Posts */}
             <PostList posts = {this.state.posts}
                     addRating = {this.addRating}
@@ -47,4 +73,16 @@ class Home extends React.Component {
   }
 }
 
+const feedStyle = {
+  position: 'relative',
+  size: 'large',
+  left: '25%'
+}
+
+const headerStyle = {
+  color: 'teal', 
+  textAlign: 'center',
+  lineHeight: 2,
+  fontSize: '50px'
+}
 export default Home;
