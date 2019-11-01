@@ -7,8 +7,7 @@ class Post extends React.Component {
 
   render() {
     //const { addRating, imgLink, movieTitle } = this.props
-    console.log(this.props)
-
+    console.log(this.props)            
     return (
       <div>
         <Card>
@@ -33,4 +32,3 @@ class Post extends React.Component {
 }
 
 export default Post;
-
