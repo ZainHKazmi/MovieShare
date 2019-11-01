@@ -20,3 +20,17 @@
 .App-link {
   color: #09d3ac;
 }
+
+.carouselPic {
+  height: 400px;
+  width: 800px;
+  
+}
+
+.carousel{
+  height: 400px;
+  width: 800px;
+  margin-left: 25%;
+  margin-top: 100px;
+  border: 50px;
+}
