@@ -14,6 +14,11 @@ class Admin extends React.Component {
   state = {
 	users: ["John doe", "John Smith", "Jack Jill"],
   }
+ 
+  removeUser = (userIndex) => {
+      const updatedState = this.state.users.filter((user, index) => userIndex != index);
+      this.setState({users: updatedState});
+  };
   render(){
      return (
 	<div>
@@ -27,7 +32,7 @@ class Admin extends React.Component {
 	     </Header>
 	    <Header as="h2" style={titleStyle}>All Users</Header>
 	     {this.state.users.map(
-		user =>(
+		(user, userIndex) =>(
 	        <Card style = {adminUserAccess}>
 	         <Card.Content>
 	           <Card.Header>
@@ -40,7 +45,7 @@ class Admin extends React.Component {
 			<Link to={'./profile'}>
 			 <Button>Edit</Button>
 			</Link>
-			<Button>Remove</Button>
+			<Button onClick={()=>this.removeUser(userIndex)}>Remove</Button>
 		    </Button.Group>
 	           </Card.Description>
 	         </Card.Content>
