@@ -7,8 +7,7 @@ class Post extends React.Component {
 
   render() {
     //const { addRating, imgLink, movieTitle } = this.props
-    console.log(this.props)
-
+    console.log(this.props)            
     return (
       <div>
         <Card>
@@ -33,27 +32,3 @@ class Post extends React.Component {
 }
 
 export default Post;
-
-/*
-        <Card>
-          <Card.Content>
-            <Card.Header>What have you recently watched?</Card.Header>
-            <Card.Meta> 
-              <input name='imgLink' 
-                    value={ imgLink } 
-                    onChange={this.props.handleChange} 
-                    type="text" 
-                    placeholder="Image Link" />
-            </Card.Meta>
-            <Card.Description>
-              <input name='movieTitle' 
-                      value={ movieTitle } 
-                      onChange={this.props.handleChange} 
-                      type="text" 
-                      placeholder="Movie Title" />
-            </Card.Description>
-          </Card.Content>
-       </Card>
-
-
-*/
