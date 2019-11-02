@@ -69,7 +69,8 @@ class Home extends React.Component {
     });
     
   }
-
+  editPost = () => {
+  }
   addRating = (movie) => {
 
   }

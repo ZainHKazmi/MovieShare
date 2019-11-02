@@ -1,5 +1,5 @@
 import React from 'react'
-
+import favouritesList from './favouritesList'
 import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import { Grid, Avatar, Container, Divider } from '@material-ui/core'
@@ -63,7 +63,7 @@ class Profile extends React.Component {
                 <div>
                   <Feed style = {useStyles.feedStyle} events={this.state.recommendations} />
                 </div>
-                <Link to={'./favouriteslist'}> 
+                <Link to={'./favouritesList'}> 
                   <button style={{margin: '2%'}}>
                       See All
                   </button>

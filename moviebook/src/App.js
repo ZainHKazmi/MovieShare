@@ -8,7 +8,7 @@ import Profile from './Profile';
 import Home from './Home';
 import Admin from './Admin';
 // import FriendProfile from './FriendProfile';
-// import FavouritesList from './FavouritesList';
+import favouritesList from './favouritesList';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route exact path='/home' component={Home}/>
         <Route exact path='/profile' component={Profile}/>
         <Route exact path='/admin' component={Admin}/>
+	<Route exact path='/favouritesList' component={favouritesList}/>
 	{/* <Route exact path='/friendprofile' component={FriendProfile}/>
         <Route exact path='/favouriteslist' component={FavouritesList}/> */}
       </Switch>
