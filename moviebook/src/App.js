@@ -3,9 +3,10 @@ import './App.css';
 
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import Login from './Login';
+import Login from './login';
 import Profile from './Profile';
 import Home from './Home';
+import Admin from './Admin';
 // import FriendProfile from './FriendProfile';
 // import FavouritesList from './FavouritesList';
 
@@ -18,7 +19,8 @@ function App() {
         <Route exact path='/' component={Login}/>
         <Route exact path='/home' component={Home}/>
         <Route exact path='/profile' component={Profile}/>
-        {/* <Route exact path='/friendprofile' component={FriendProfile}/>
+        <Route exact path='/admin' component={Admin}/>
+	{/* <Route exact path='/friendprofile' component={FriendProfile}/>
         <Route exact path='/favouriteslist' component={FavouritesList}/> */}
       </Switch>
     </BrowserRouter>

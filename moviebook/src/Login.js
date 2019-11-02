@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import Home from './Home'
+import Admin from './Admin'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'react-bootstrap'
 import './App.css';
@@ -43,7 +44,9 @@ class Login extends React.Component {
     } 
 
     if (this.state.adminLoggedIn) {
-      // return <Admin />
+      return (
+	<Admin />
+      );
     }
 
     return (

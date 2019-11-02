@@ -7,7 +7,7 @@ import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
 // import components
 import PostList from './PostList'
 import Post from './Post'
-import Login from './Login'
+import Login from './login'
 
 
 class Home extends React.Component {
