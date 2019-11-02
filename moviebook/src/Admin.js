@@ -11,7 +11,9 @@ import Login from './login'
 
 
 class Admin extends React.Component {
-
+  state = {
+	users: ["John doe", "John Smith", "Jack Jill"],
+  }
   render(){
      return (
 	<div>
@@ -23,7 +25,7 @@ class Admin extends React.Component {
 	      </Link>
 	     </Button.Group>
 	     </Header>
-	    <Header as="h2" style={titleStyle}>Users</Header>
+	    <Header as="h2" style={titleStyle}>All Users</Header>
 	     {this.state.users.map(
 		user =>(
 	        <Card style = {adminUserAccess}>
