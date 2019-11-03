@@ -1,13 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
 import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
-// import components
-import PostList from './PostList'
-import Post from './Post'
-import Login from './Login'
 
 
 class Admin extends React.Component {
@@ -21,7 +15,7 @@ class Admin extends React.Component {
       const updatedState = this.state.users.filter((user, index) => userIndex != index);
       this.setState({users: updatedState});
   };
-  
+
   render(){
      return (
 	<div>
