@@ -12,15 +12,15 @@ import Login from './login'
 
 class Home extends React.Component {
 
-  ///  React 'state'.  
-  // Allows us to keep track of changing data in this component.
   state = {
     movieTitle: "",
     movieLink: 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png',
     userRating: 0,
     userPic: 'https://i.stack.imgur.com/34AD2.jpg',
     date: 'Today',
-    // These are the posts, right now its hard coded but in the future we need to flood this array with the user's friends posts
+    // These are the posts, right now its hard coded but in the future we need to flood this 
+    // array with the user's friends posts
+	  // Requires server call
     posts : [
       {
         date: '4 days ago',
@@ -54,6 +54,7 @@ class Home extends React.Component {
     const postList = this.state.posts
     const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
 
+	  // Requires server call to get movie info
     const newPost = {
       date: this.state.date,
       image: this.state.userPic,

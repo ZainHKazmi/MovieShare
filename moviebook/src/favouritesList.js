@@ -6,8 +6,9 @@ import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
 import AppBar from 'material-ui/AppBar'
 class favouritesList extends React.Component {
     state = {
-	favouritesList: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],
-     }
+	  // Requires server call
+		favouritesList: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],
+    }
 
   render() {
 

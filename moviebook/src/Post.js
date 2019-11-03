@@ -1,8 +1,6 @@
 import React from 'react';
 import { Card, Button, Rating } from 'semantic-ui-react'
 
-
-/* Component for the List of Students */
 class Post extends React.Component {
 
   render() {

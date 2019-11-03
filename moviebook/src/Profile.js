@@ -12,6 +12,7 @@ class Profile extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
+	  // Requires server call to access user data
     recommendations: [
       {
         meta: <Rating defaultRating={3} maxRating={5} disabled /> ,

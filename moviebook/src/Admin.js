@@ -12,13 +12,16 @@ import Login from './login'
 
 class Admin extends React.Component {
   state = {
+	// Requires server call to populate the user list
 	users: ["John doe", "John Smith", "Jack Jill"],
   }
  
   removeUser = (userIndex) => {
+	  // Requires server call
       const updatedState = this.state.users.filter((user, index) => userIndex != index);
       this.setState({users: updatedState});
   };
+  
   render(){
      return (
 	<div>

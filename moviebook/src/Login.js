@@ -25,6 +25,7 @@ class Login extends React.Component {
 
   checkCreds = (e) => {
     e.preventDefault();
+	  // Requires server call to ascertain user creds
     if (this.state.username === "user" && this.state.password === "user"){
       this.setState({ next_page: '/home' })
       this.setState({ userLoggedIn: true })
@@ -45,7 +46,7 @@ class Login extends React.Component {
 
     if (this.state.adminLoggedIn) {
       return (
-	<Admin />
+	      <Admin />
       );
     }
 
