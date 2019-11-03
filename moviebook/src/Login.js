@@ -53,8 +53,33 @@ class Login extends React.Component {
     return (
         <div>
             <MuiThemeProvider>
-              <AppBar title="Login"/>   
-              <div>
+              <AppBar title="MovieShare"/>   
+              <div style = { style.login }> 
+                <TextField
+                    id="username"
+                    hintText="Enter your Username"
+                    floatingLabelText="Username"
+                    onChange = {(event,value) => this.setState({username:value})}
+                    // style = { style }
+                />
+                <br/>
+                <TextField
+                    id="password"
+                    type="password"
+                    hintText="Enter your Password"
+                    floatingLabelText="Password"
+                    onChange = {(event,value) => this.setState({password:value})}
+                    // style = { style }
+                />
+              </div>
+            </MuiThemeProvider>
+            <br/>
+            {/* <Link to={this.state.next_page}>  */}
+                <button onClick={ this.checkCreds } style = { style.login }>
+                    sign in
+                </button>
+            {/* </Link> */}
+            <div style = { style.carousel }>
               <Carousel className= "carousel" interval={3000}>
                 <Carousel.Item>
                   <div className="carouselPic">
@@ -79,41 +104,20 @@ class Login extends React.Component {
                 </Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
-              </div>
-              <div> 
-                <TextField
-                    id="username"
-                    hintText="Enter your Username"
-                    floatingLabelText="Username"
-                    onChange = {(event,value) => this.setState({username:value})}
-                    style = { style }
-                />
-                <br/>
-                <TextField
-                    id="password"
-                    type="password"
-                    hintText="Enter your Password"
-                    floatingLabelText="Password"
-                    onChange = {(event,value) => this.setState({password:value})}
-                    style = { style }
-                />
-              </div>
-            </MuiThemeProvider>
-            <br/>
-            {/* <Link to={this.state.next_page}>  */}
-                <button onClick={ this.checkCreds } style = { style }>
-                    sign in
-                </button>
-            {/* </Link> */}
+            </div>
         </div>
     );
   }
 }
 
 const style = {
-    position: 'relative', 
-    left: '25%', 
-    top: '25%',
+  carousel: {
+    marginLeft: '-10%',
+    marginTop: '-4%'
+  },
+  login: {
+    marginLeft: '37%'
+  }  
 };
 
 export default Login;
