@@ -1,14 +1,20 @@
 # Team 44: MovieShare
 
+## Prerequisites
+Install Node.js and NPM (https://nodejs.org/en/download/)
 
-### Use `npm install` then `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
+## Starting the app
+Make sure your on the correct branch and have the latest version using the following commands
+```
+git checkout master
+git pull origin master
+```
+Use the following commands to navigate to the proper directory and start the application
+```
+cd movieshare/src
+npm install
+npm start
+```
 
 ## Login Credentials
 
