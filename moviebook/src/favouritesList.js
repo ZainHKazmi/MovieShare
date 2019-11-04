@@ -6,13 +6,50 @@ import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
 import AppBar from 'material-ui/AppBar'
 class favouritesList extends React.Component {
     state = {
-	favouritesList: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],
+	favList: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],
+	favouritesList: [],
+	 posts: [
+	{
+        date: '4 days ago',
+        image: '/johnson.jpg',
+        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
+        summary: 'The Avengers',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
+      },
+      {
+        date: '2 weeks ago',
+        image: '/johnson.jpg',
+        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
+        summary: 'Guardians of the Galaxy',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
+      },
+      {
+        date: '1 month ago',
+        image: '/johnson.jpg',
+        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
+        summary: 'Avatar',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
+      },
+    ]
      }
+
 
   render() {
 
 	 return (
 		<div>
+		 <Header as="h1" style={headerStyle}>
+		Favourites List
+		 <Button.Group floated="right">
+                <Link to={'./'}> 
+                  <Button>Log out</Button>
+                </Link>
+                <Link to={'./profile'}> 
+                  <Button>Profile</Button>
+                </Link>
+              </Button.Group>
+		</Header>
+		 <Feed style = {feedStyle} events={this.state.posts} />
 		 {this.state.favouritesList.map(
 		 movie=>(
 	         <Card>
@@ -24,6 +61,7 @@ class favouritesList extends React.Component {
 	
 		</Card.Content>
 		</Card>)
+		
 		)
 	     }  
 	   </div>
@@ -45,5 +83,19 @@ class favouritesList extends React.Component {
  
  
  }
-
+const feedStyle = {
+  margin: '10px',
+  position: 'relative',
+  size: 'large',
+  left: '27.5%',
+  background: '#FAF1F6',
+  width: '45%'
+}
+const headerStyle = {
+  color: '#FE8FB8', 
+  textAlign: 'center',
+  lineHeight: 2,
+  fontSize: '50px',
+  background: '#B7D8FE'
+}
 export default favouritesList;
