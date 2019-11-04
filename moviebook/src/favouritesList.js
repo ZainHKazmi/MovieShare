@@ -34,7 +34,7 @@ class favouritesList extends React.Component {
 	 return (
 		<div>
 		 <Header as="h1" style={headerStyle}>
-		Favourites List
+		My MovieBook
 		 <Button.Group floated="right">
                 <Link to={'./'}> 
                   <Button>Log out</Button>

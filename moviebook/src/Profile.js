@@ -27,6 +27,11 @@ class Profile extends React.Component {
         date: '1 month ago',
         summary: 'Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
+      }],
+
+    favourites: [{
+        summary: 'The Avengers',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       }]
 }
 
@@ -38,7 +43,7 @@ class Profile extends React.Component {
           <Grid container justify="space-evenly">
             <Grid item xs={4} style={useStyles.colStyle} >
               <div style={{margin: 10}}>
-                <Avatar style={useStyles.avatar} src="/johnson.jpg"/>
+                <Avatar style={useStyles.avatar} src="https://i.stack.imgur.com/34AD2.jpg"/>
                 <h1>Johnny Johnson</h1>
                 <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
                 <h3>Friends</h3>
@@ -73,6 +78,12 @@ class Profile extends React.Component {
                 <br/>
                 <div>
                   <Feed style = {useStyles.feedStyle} events={this.state.watchlater} />
+           	</div>
+             <h3>Favourites List</h3>
+                <Divider orientation="horizontal"/>
+                <br/>
+                <div>
+                  <Feed style = {useStyles.feedStyle} events={this.state.favourites} />
            	</div>
 	    	</div>
 	    </Grid>	  

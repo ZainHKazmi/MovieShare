@@ -91,7 +91,7 @@ class Home extends React.Component {
 
   render() {
     return (
-        <div>
+        <div style={{backgroundColor: '#77a6f7'}}>
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
             
@@ -107,7 +107,7 @@ class Home extends React.Component {
               </Button.Group>
             </Header>
             <div style = {postStyle}>
-            <Post  
+            <Post
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
@@ -130,23 +130,22 @@ const feedStyle = {
   position: 'relative',
   size: 'large',
   left: '27.5%',
-  background: '#FAF1F6',
+  background: '#d3e3fc',
   width: '45%',
-
+  
 }
 
 const headerStyle = {
-  color: '#FE8FB8', 
+  color: '#00887a', 
   textAlign: 'center',
   lineHeight: 2,
   fontSize: '50px',
-  background: '#B7D8FE',
-  border: '4px solid black'
+  background: '#ffffff',
 }
 
 const postStyle = {
   position: 'relative',
-  left: '42.5%',
-  width: "45%"
+  left: '40%',
+  width: "45%",
 }
 export default Home;
