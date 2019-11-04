@@ -43,7 +43,7 @@ class Home extends React.Component {
     ],
 
     // username: `${this.props.location.state.username}`
-    username: "Johnny"
+    username: "User"
   }
 
   
