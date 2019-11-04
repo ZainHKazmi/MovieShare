@@ -9,22 +9,17 @@ class favouritesList extends React.Component {
 	 posts: [
 	{
         date: '4 days ago',
-        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
+        meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
         header: 'The Avengers',
         image: 'https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg',
       },
       {
         date: '2 weeks ago',
-        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
+        meta: <Rating defaultRating={4} maxRating={5} disabled /> ,
         header: 'Guardians of the Galaxy',
         image: 'https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg',
       },
-      {
-        date: '1 month ago',
-        meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
-        header: 'Avatar',
-        image: 'https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg',
-      },
+
     ]
      }
 
