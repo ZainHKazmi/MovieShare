@@ -48,6 +48,9 @@ class Profile extends React.Component {
                 <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
                 <h3>Friends</h3>
                 <Avatar style={useStyles.friends} src="/tim.png"/>
+                <Avatar style={useStyles.friends} src="/johnson.jpg"/>
+                <Avatar style={useStyles.friends} src="/jim.jpg"/>
+
                 <h3>Statistics</h3>
                 <pre>Movies rated: 2 <br/>
                   Average score: 3.5</pre>
