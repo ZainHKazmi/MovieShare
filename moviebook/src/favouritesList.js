@@ -1,9 +1,6 @@
- import React from 'react'                                  
- import { Link } from 'react-router-dom'
- import TextField from 'material-ui/TextField'
- import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'  
-import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react' 
-import AppBar from 'material-ui/AppBar'
+import React from 'react'                                  
+import {Card} from 'semantic-ui-react' 
+
 class favouritesList extends React.Component {
     state = {
 	  // Requires server call

@@ -1,7 +1,5 @@
 import React from 'react'
-import favouritesList from './favouritesList'
 import { Link } from 'react-router-dom'
-import Paper from '@material-ui/core/Paper'
 import { Grid, Avatar, Container, Divider} from '@material-ui/core'
 import {Feed, Button, Rating} from 'semantic-ui-react'
 

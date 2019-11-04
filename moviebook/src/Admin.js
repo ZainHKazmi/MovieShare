@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
+import { Header, Card, Button} from 'semantic-ui-react'
 
 
 class Admin extends React.Component {
@@ -12,7 +12,7 @@ class Admin extends React.Component {
  
   removeUser = (userIndex) => {
 	  // Requires server call
-      const updatedState = this.state.users.filter((user, index) => userIndex != index);
+      const updatedState = this.state.users.filter((user, index) => userIndex !== index);
       this.setState({users: updatedState});
   };
 
