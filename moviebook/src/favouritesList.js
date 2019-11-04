@@ -1,9 +1,7 @@
- import React from 'react'                                  
- import { Link } from 'react-router-dom'
- import TextField from 'material-ui/TextField'
- import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'  
-import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react' 
-import AppBar from 'material-ui/AppBar'
+import React from 'react'                                  
+import {Card, Feed, Header, Rating, Button} from 'semantic-ui-react' 
+import { Link } from 'react-router-dom'   
+
 class favouritesList extends React.Component {
     state = {
 	favList: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],

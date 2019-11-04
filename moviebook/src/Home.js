@@ -1,26 +1,23 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
+import {Feed, Header, Rating, Button} from 'semantic-ui-react'
 // import components
-import PostList from './PostList'
 import Post from './Post'
-import Login from './login'
+
 
 
 class Home extends React.Component {
 
-  ///  React 'state'.  
-  // Allows us to keep track of changing data in this component.
   state = {
     movieTitle: "",
     movieLink: 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png',
     userRating: 0,
     userPic: 'https://i.stack.imgur.com/34AD2.jpg',
     date: 'Today',
-    // These are the posts, right now its hard coded but in the future we need to flood this array with the user's friends posts
+    // These are the posts, right now its hard coded but in the future we need to flood this 
+    // array with the user's friends posts
+	  // Requires server call
     posts : [
       {
         date: '4 days ago',
@@ -54,6 +51,7 @@ class Home extends React.Component {
     const postList = this.state.posts
     const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
 
+	  // Requires server call to get movie info
     const newPost = {
       date: this.state.date,
       image: this.state.userPic,
@@ -96,6 +94,7 @@ class Home extends React.Component {
         <div>
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
+            
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
               <Button.Group floated="right">
@@ -108,7 +107,7 @@ class Home extends React.Component {
               </Button.Group>
             </Header>
             <div style = {postStyle}>
-            <Post 
+            <Post  
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
@@ -132,7 +131,8 @@ const feedStyle = {
   size: 'large',
   left: '27.5%',
   background: '#FAF1F6',
-  width: '45%'
+  width: '45%',
+
 }
 
 const headerStyle = {
@@ -141,10 +141,12 @@ const headerStyle = {
   lineHeight: 2,
   fontSize: '50px',
   background: '#B7D8FE',
+  border: '4px solid black'
 }
 
 const postStyle = {
   position: 'relative',
   left: '42.5%',
+  width: "45%"
 }
 export default Home;

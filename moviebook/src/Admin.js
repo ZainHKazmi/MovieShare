@@ -1,24 +1,21 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import {Feed, Header, Rating, Card, Button} from 'semantic-ui-react'
-// import components
-import PostList from './PostList'
-import Post from './Post'
-import Login from './login'
+import { Header, Card, Button} from 'semantic-ui-react'
 
 
 class Admin extends React.Component {
   state = {
+	// Requires server call to populate the user list
 	users: ["John doe", "John Smith", "Jack Jill"],
   }
  
   removeUser = (userIndex) => {
-      const updatedState = this.state.users.filter((user, index) => userIndex != index);
+	  // Requires server call
+      const updatedState = this.state.users.filter((user, index) => userIndex !== index);
       this.setState({users: updatedState});
   };
+
   render(){
      return (
 	<div>

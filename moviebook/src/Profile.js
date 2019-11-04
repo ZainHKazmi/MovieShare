@@ -1,8 +1,6 @@
 import React from 'react'
-import favouritesList from './favouritesList'
 import { Link } from 'react-router-dom'
-import Paper from '@material-ui/core/Paper'
-import { Grid, Avatar, Container, Divider } from '@material-ui/core'
+import { Grid, Avatar, Container, Divider} from '@material-ui/core'
 import {Feed, Button, Rating} from 'semantic-ui-react'
 
 
@@ -12,6 +10,7 @@ class Profile extends React.Component {
   ///  React 'state'.  
   // Allows us to keep track of changing data in this component.
   state = {
+	  // Requires server call to access user data
     recommendations: [
       {
         meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
@@ -33,6 +32,7 @@ class Profile extends React.Component {
 
   render() {
     return (
+        
         <div style={{backgroundColor: '#f3f3f3'}}>
           <Container maxWidth="xl">
           <Grid container justify="space-evenly">

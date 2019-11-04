@@ -6,6 +6,7 @@
  
 class recentlyWatched extends React.Component {
      state = {
+		// Requires server call
 	     moviesWatched: ["Avengers EndGame", "The Hobbit", "The Nun", "Fifty Shades of Grey"],
      }
      
