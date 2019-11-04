@@ -86,10 +86,10 @@ const cardStyle = {
   /*width: '45%',*/
 }
 const headerStyle = {
-  color: '#FE8FB8', 
+  color: '#00887a', 
   textAlign: 'center',
   lineHeight: 2,
   fontSize: '50px',
-  background: '#B7D8FE'
+  background: '#ececec',
 }
 export default favouritesList;
