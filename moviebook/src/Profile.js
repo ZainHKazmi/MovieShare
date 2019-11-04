@@ -44,7 +44,7 @@ class Profile extends React.Component {
             <Grid item xs={4} style={useStyles.colStyle} >
               <div style={{margin: 10}}>
                 <Avatar style={useStyles.avatar} src="https://i.stack.imgur.com/34AD2.jpg"/>
-                <h1>Johnny Johnson</h1>
+                <h1>User</h1>
                 <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
                 <h3>Friends</h3>
                 <Avatar style={useStyles.friends} src="/tim.png"/>
