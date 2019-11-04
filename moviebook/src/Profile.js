@@ -27,6 +27,11 @@ class Profile extends React.Component {
         date: '1 month ago',
         summary: 'Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
+      }],
+
+    favourites: [{
+        summary: 'The Avengers',
+        extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       }]
 }
 
@@ -73,6 +78,12 @@ class Profile extends React.Component {
                 <br/>
                 <div>
                   <Feed style = {useStyles.feedStyle} events={this.state.watchlater} />
+           	</div>
+             <h3>Favourites List</h3>
+                <Divider orientation="horizontal"/>
+                <br/>
+                <div>
+                  <Feed style = {useStyles.feedStyle} events={this.state.favourites} />
            	</div>
 	    	</div>
 	    </Grid>	  
