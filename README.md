@@ -4,11 +4,12 @@
 Install Node.js and NPM (https://nodejs.org/en/download/)
 
 ## Starting the app
-Make sure your on the correct branch and have the latest version using the following commands
+Make sure you're on the correct branch and have the latest version using the following commands
 ```
 git checkout master
 git pull origin master
 ```
+
 Use the following commands to navigate to the proper directory and start the application
 ```
 cd movieshare/src
