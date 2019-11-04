@@ -97,6 +97,7 @@ class Home extends React.Component {
         <div>
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
+            
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
               <Button.Group floated="right">
@@ -109,7 +110,7 @@ class Home extends React.Component {
               </Button.Group>
             </Header>
             <div style = {postStyle}>
-            <Post 
+            <Post  
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
@@ -133,7 +134,8 @@ const feedStyle = {
   size: 'large',
   left: '27.5%',
   background: '#FAF1F6',
-  width: '45%'
+  width: '45%',
+
 }
 
 const headerStyle = {
@@ -142,10 +144,12 @@ const headerStyle = {
   lineHeight: 2,
   fontSize: '50px',
   background: '#B7D8FE',
+  border: '4px solid black'
 }
 
 const postStyle = {
   position: 'relative',
   left: '42.5%',
+  width: "45%"
 }
 export default Home;

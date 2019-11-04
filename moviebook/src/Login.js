@@ -53,14 +53,40 @@ class Login extends React.Component {
     return (
         <div>
             <MuiThemeProvider>
-              <AppBar title="MovieShare"/>   
+            <AppBar title="MovieShare"/> 
+              <div style = { style.carousel }>
+                <Carousel className= "carousel" interval={3000}>
+                  <Carousel.Item>
+                    <div className="carouselPic">
+                    <img className="d-block h-100" src ='Movie-banner.jpg' alt = "First Slide"/>
+                    </div>
+                    <Carousel.Caption>
+                      <h1>Discover what your friends are watching</h1>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                      <img className="d-block w-100" src ='dunkirk-banner.jpg' alt = "Second Slide"/>
+                      <Carousel.Caption>
+                        <h1>Keep track of what to watch</h1>
+                      </Carousel.Caption>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <img className="d-block w-100" src ='Joker-Banner.jpg' alt = "Third Slide"/>
+                    <Carousel.Caption>
+                      <h1>Get the hottest recommendations</h1>
+                  </Carousel.Caption>
+                  </Carousel.Item>
+                </Carousel>
+              </div>
+                
               <div style = { style.login }> 
                 <TextField
                     id="username"
                     hintText="Enter your Username"
                     floatingLabelText="Username"
                     onChange = {(event,value) => this.setState({username:value})}
-                    // style = { style }
                 />
                 <br/>
                 <TextField
@@ -69,7 +95,6 @@ class Login extends React.Component {
                     hintText="Enter your Password"
                     floatingLabelText="Password"
                     onChange = {(event,value) => this.setState({password:value})}
-                    // style = { style }
                 />
               </div>
             </MuiThemeProvider>
@@ -79,32 +104,6 @@ class Login extends React.Component {
                     sign in
                 </button>
             {/* </Link> */}
-            <div style = { style.carousel }>
-              <Carousel className= "carousel" interval={3000}>
-                <Carousel.Item>
-                  <div className="carouselPic">
-                  <img className="d-block h-100" src ='Movie-banner.jpg' alt = "First Slide"/>
-                  </div>
-                  <Carousel.Caption>
-                    <h1>Discover what your friends are watching</h1>
-                  </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                    <img className="d-block w-100" src ='dunkirk-banner.jpg' alt = "Second Slide"/>
-                    <Carousel.Caption>
-                      <h1>Keep track of what to watch</h1>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                  <img className="d-block w-100" src ='Joker-Banner.jpg' alt = "Third Slide"/>
-                  <Carousel.Caption>
-                    <h1>Get the hottest recommendations</h1>
-                </Carousel.Caption>
-                </Carousel.Item>
-              </Carousel>
-            </div>
         </div>
     );
   }

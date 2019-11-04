@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, Rating } from 'semantic-ui-react'
-
+import './App.css';
 class Post extends React.Component {
 
   render() {
@@ -8,7 +8,7 @@ class Post extends React.Component {
     console.log(this.props)            
     return (
       <div>
-        <Card>
+        <Card className = "postCard">
           <Card.Content>
             <Card.Header>What have you recently watched?</Card.Header>
             <Card.Description>
