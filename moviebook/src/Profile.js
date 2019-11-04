@@ -73,14 +73,9 @@ class Profile extends React.Component {
                 <br/>
                 <div>
                   <Feed style = {useStyles.feedStyle} events={this.state.watchlater} />
-                </div>
-                <Link to={'./recentlywatched'}> 
-                  <button style={{margin: '2%'}}>
-                      See All
-                  </button>
-                </Link>
-              </div>
-            </Grid>
+           	</div>
+	    	</div>
+	    </Grid>	  
           </Grid>
           </Container>
         </div>
