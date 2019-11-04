@@ -9,21 +9,21 @@ class favouritesList extends React.Component {
 	 posts: [
 	{
         date: '4 days ago',
-        image: '/johnson.jpg',
+        image: 'https://i.stack.imgur.com/34AD2.jpg',
         meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
         summary: 'The Avengers',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       },
       {
         date: '2 weeks ago',
-        image: '/johnson.jpg',
+        image: 'https://i.stack.imgur.com/34AD2.jpg',
         meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
         summary: 'Guardians of the Galaxy',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
       },
       {
         date: '1 month ago',
-        image: '/johnson.jpg',
+        image: 'https://i.stack.imgur.com/34AD2.jpg',
         meta: <Rating defaultRating={5} maxRating={5} disabled /> ,
         summary: 'Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
@@ -37,7 +37,7 @@ class favouritesList extends React.Component {
 	 return (
 		<div>
 		 <Header as="h1" style={headerStyle}>
-		Favourites List
+		My MovieBook
 		 <Button.Group floated="right">
                 <Link to={'./'}> 
                   <Button>Log out</Button>
