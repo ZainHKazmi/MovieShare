@@ -140,7 +140,7 @@ const headerStyle = {
   textAlign: 'center',
   lineHeight: 2,
   fontSize: '50px',
-  background: '#ffffff',
+  background: '#ececec',
 }
 
 const postStyle = {
