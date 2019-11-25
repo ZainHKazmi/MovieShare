@@ -21,21 +21,21 @@ class Home extends React.Component {
     posts : [
       {
         date: '4 days ago',
-        image: '/jim.jpg',
+        image: '../../Assets/jim.jpg',
         meta: <Rating defaultRating={3} maxRating={5} disabled /> ,
         summary: 'Jim recommended the Avengers',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'],
       },
       {
         date: '2 weeks ago',
-        image: '/johnson.jpg',
+        image: '../../Assets/johnson.jpg',
         meta: <Rating defaultRating={4} maxRating={5} disabled /> ,
         summary: 'Johnson recommended Guardians of the Galaxy',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg'],
       },
       {
         date: '1 month ago',
-        image: '/tim.png',
+        image: '../../Assets/tim.png',
         meta: <Rating defaultRating={1} maxRating={5} disabled /> ,
         summary: 'Tim recommended Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
