@@ -6,7 +6,7 @@ import Home from './Home'
 import Admin from './Admin'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'react-bootstrap'
-import './App.css';
+import '../App.css';
 
 class Login extends React.Component {
 

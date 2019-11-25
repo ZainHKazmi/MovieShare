@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, Rating } from 'semantic-ui-react'
-import './App.css';
+import '../App.css';
 class Post extends React.Component {
 
   render() {

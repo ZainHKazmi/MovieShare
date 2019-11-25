@@ -3,12 +3,12 @@ import './App.css';
 
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import Login from './Login';
-import Profile from './Profile';
-import Home from './Home';
-import Admin from './Admin';
+import Login from './Views/Login';
+import Profile from './Views/Profile';
+import Home from './Views/Home';
+import Admin from './Views/Admin';
 // import FriendProfile from './FriendProfile';
-import favouritesList from './favouritesList';
+import favouritesList from './Components/favouritesList';
 
 function App() {
   return (
