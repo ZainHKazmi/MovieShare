@@ -56,7 +56,7 @@ class Login extends React.Component {
                 <Carousel className= "carousel" interval={3000}>
                   <Carousel.Item>
                     <div className="carouselPic">
-                    <img className="d-block h-100" src ='Movie-banner.jpg' alt = "First Slide"/>
+                    <img className="d-block h-100" src ='../../Assets/Movie-banner.jpg' alt = "First Slide"/>
                     </div>
                     <Carousel.Caption>
                       <h1>Discover what your friends are watching</h1>
@@ -64,14 +64,14 @@ class Login extends React.Component {
                   </Carousel.Item>
 
                   <Carousel.Item>
-                      <img className="d-block w-100" src ='dunkirk-banner.jpg' alt = "Second Slide"/>
+                      <img className="d-block w-100" src ='../../Assets/dunkirk-banner.jpg' alt = "Second Slide"/>
                       <Carousel.Caption>
                         <h1>Keep track of what to watch</h1>
                       </Carousel.Caption>
                   </Carousel.Item>
 
                   <Carousel.Item>
-                    <img className="d-block w-100" src ='Joker-Banner.jpg' alt = "Third Slide"/>
+                    <img className="d-block w-100" src ='../../Assets/Joker-Banner.jpg' alt = "Third Slide"/>
                     <Carousel.Caption>
                       <h1>Get the hottest recommendations</h1>
                   </Carousel.Caption>
