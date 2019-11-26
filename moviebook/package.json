@@ -5,9 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/system": "^4.5.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "material-ui": "^0.20.2",
+    "mongoose": "^5.7.12",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -19,13 +23,15 @@
     "react-user-profile": "^1.0.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "validator": "^12.1.0"
   },
   "scripts": {
-    "start": "nodemon src/server/index.js",
+    "start": "nodemon src/server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "nodemon src/server/server.js"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
@@ -42,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^2.0.1"
   }
 }

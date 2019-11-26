@@ -153,7 +153,7 @@ app.get('/posts/:id', (req, res) => {
 })
 
 /// a DELETE route to remove a student by their id.
-app.delete('/students/:id', (req, res) => {
+app.delete('/posts/:id', (req, res) => {
 	const id = req.params.id
 
 	// Validate id
@@ -162,11 +162,11 @@ app.delete('/students/:id', (req, res) => {
 	}
 
 	// Delete a student by their id
-	Student.findByIdAndRemove(id).then((student) => {
-		if (!student) {
+	Post.findByIdAndRemove(id).then((post) => {
+		if (!post) {
 			res.status(404).send()
 		} else {   
-			res.send(student)
+			res.send(post)
 		}
 	}).catch((error) => {
 		res.status(500).send() // server error, could not delete.
@@ -185,7 +185,7 @@ app.patch('/posts/:id', (req, res) => {
 		res.status(404).send()
 	}
 
-	// Update the student by their id.
+	// Update the post by their id.
 	// Post.findByIdAndUpdate(id, {$set: body}, {new: true}).then((post) => {
 	// 	if (!post) {
 	// 		res.status(404).send()
@@ -230,7 +230,7 @@ app.get("*", (req, res) => {
 
 /*************************************************/
 // Express server listening...
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 5000
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
 }) 
