@@ -9,6 +9,19 @@ const bcrypt = require('bcryptjs')
 // Allows us to add additional functionality.
 const PostSchema = new mongoose.Schema({
 	// TODO
+	rating: {
+		type: Number,
+		min: 0,
+		max: 5,
+		default: 0
+	},
+	movieTitle: {
+		type: String
+	},
+	date: {
+		type: Date, 
+		default: Date.now
+	}
 })
 
 // // An example of Mongoose middleware.
