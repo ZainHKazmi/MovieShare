@@ -27,13 +27,13 @@
     "validator": "^12.1.0"
   },
   "scripts": {
-    "start": "nodemon src/server/server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon src/server/server.js"
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:3000/",
   "eslintConfig": {
     "extends": "react-app"
   },
