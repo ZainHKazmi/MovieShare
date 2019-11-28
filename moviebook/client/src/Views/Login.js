@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
+import { Button } from '@material-ui/core'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import Home from './Home'
 import Admin from './Admin'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Carousel } from 'react-bootstrap'
 import '../App.css';
 
@@ -18,16 +20,21 @@ class Login extends React.Component {
     friends: [],
     userLoggedIn: false,
     adminLoggedIn: false,
+    next_page: '/login'
   }
   
 
-  checkCreds = (e) => {
+  checkCreds = async (e) => {
     e.preventDefault();
+    console.log(typeof(this.state.username), typeof("user"))
+    console.log(this.state.username.valueOf() === "user")
+    console.log(this.state.password.valueOf() === "user")
 	  // Requires server call to ascertain user creds
-    if (this.state.username === "user" && this.state.password === "user"){
-      this.setState({ next_page: '/home' })
-      this.setState({ userLoggedIn: true })
-    } else if (this.state.username === "admin" && this.state.password === "admin"){
+    if (this.state.username.valueOf() === "user" && this.state.password.valueOf() === "user"){
+      console.log("what is HAPPENING.")
+      await this.setState({ next_page: '/home', userLoggedIn: true })
+      // this.setState({ userLoggedIn: true })
+    } else if (this.state.username.valueOf() === "admin" && this.state.password.valueOf() === "admin"){
       this.setState({ next_page: '/admin' })
       this.setState({ adminLoggedIn: true })
     } 
@@ -36,18 +43,6 @@ class Login extends React.Component {
   }
 
   render() {
-    if (this.state.userLoggedIn){
-      return (
-        <Home />
-      );
-    } 
-
-    if (this.state.adminLoggedIn) {
-      return (
-	      <Admin />
-      );
-    }
-
     return (
         <div>
             <MuiThemeProvider>
@@ -79,12 +74,12 @@ class Login extends React.Component {
                 </Carousel>
               </div>
                 
-              <div style = { style.login }> 
+              <div style = {{ marginLeft: '37%' }}> 
                 <TextField
                     id="username"
                     hintText="Enter your Username"
                     floatingLabelText="Username"
-                    onChange = {(event,value) => this.setState({username:value})}
+                    onChange = {(event, value) => this.setState({username:value})}
                 />
                 <br/>
                 <TextField
@@ -92,16 +87,14 @@ class Login extends React.Component {
                     type="password"
                     hintText="Enter your Password"
                     floatingLabelText="Password"
-                    onChange = {(event,value) => this.setState({password:value})}
+                    onChange = {(event, value) => this.setState({password:value})}
                 />
               </div>
             </MuiThemeProvider>
             <br/>
-            {/* <Link to={this.state.next_page}>  */}
-                <button onClick={ this.checkCreds } style = { style.login }>
-                    sign in
-                </button>
-            {/* </Link> */}
+            <Button onClick={ this.checkCreds } style = { style.login } component={Link} to={this.state.next_page}>
+                sign in
+            </Button>
         </div>
     );
   }
@@ -113,7 +106,8 @@ const style = {
     marginTop: '-4%'
   },
   login: {
-    marginLeft: '37%'
+    marginLeft: '37%',
+    background: 'lightblue'
   }  
 };
 

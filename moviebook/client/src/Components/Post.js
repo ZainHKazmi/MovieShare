@@ -3,13 +3,36 @@ import { Card, Button, Rating } from 'semantic-ui-react'
 import '../App.css';
 class Post extends React.Component {
 
+  addPost = () => {
+    const postList = this.state.posts
+    const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
+
+	  // Requires server call to get movie info
+    const newPost = {
+      date: this.state.date,
+      image: this.state.userPic,
+      meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
+      summary: newSummary,
+      extraImages: [`${this.state.movieLink}`]
+    }
+
+    fetch('http://www.omdbapi.com/?t='.concat(this.state.movieTitle))
+
+    postList.unshift(newPost)
+
+    this.setState({
+      posts: postList
+    });
+    
+  }
+
   render() {
     //const { addRating, imgLink, movieTitle } = this.props
     console.log(this.props)            
     return (
       <div>
-        <Card className = "postCard">
-          <Card.Content>
+        <Card style={{width:"80%", marginLeft:"10%"}}>
+          <Card.Content style={{width:"80%", marginLeft:"10%"}}>
             <Card.Header>What have you recently watched?</Card.Header>
             <Card.Description>
               <input name='movieTitle' 
@@ -18,7 +41,7 @@ class Post extends React.Component {
                       type="text" 
                       placeholder="Movie Title" />
             </Card.Description>
-            <Button onClick={this.props.addPost} primary>Post</Button>
+            <Button onClick={this.addPost}>Post</Button>
             <span>
               <Rating icon='star' defaultRating={0} maxRating={5} onRate={this.props.handleRate} />
             </span>
