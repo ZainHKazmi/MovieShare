@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs')
 // Making a Mongoose model a little differently: a Mongoose Schema
 // Allows us to add additional functionality.
 const PostSchema = new mongoose.Schema({
-	// TODO
+	
 	rating: {
 		type: Number,
 		min: 0,

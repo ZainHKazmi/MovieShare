@@ -22,6 +22,10 @@ app.use(bodyParser.json())
 const session = require('express-session')
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Post Routes
+const postRouter = require('./routes/postsAPI')
+app.use('/posts', postRouter)
+
 /*** Session handling **************************************/
 // Create a session cookie
 app.use(session({
@@ -89,113 +93,6 @@ app.get('/users/check-session', (req, res) => {
     } else {
         res.redirect('/')
     } 
-})
-
-/*********************************************************/
-
-/*** API Routes below ************************************/
-
-/** Post resource routes **/
-// a POST route to *create* a post
-app.post('/post', (req, res) => {
-  // TODO
-	// log(req.body)
-
-	// Create a new student using the Student mongoose model
-	// const post = new Post()
-
-	// Save post to the database
-	// post.save().then((result) => {
-	// 	res.send(result)
-	// }, (error) => {
-	// 	res.status(400).send(error) // 400 for bad request
-	// })
-})
-
-// a GET route to get all posts
-app.get('/posts', (req, res) => {
-  // TODO
-	// Post.find().then((posts) => {
-	// 	log()
-	// 	res.send({ posts }) // can wrap in object if want to add more properties
-	// }, (error) => {
-	// 	res.status(500).send(error) // server error
-	// })
-})
-
-/// a GET route to get a student by their id.
-// id is treated as a wildcard parameter, which is why there is a colon : beside it.
-// (in this case, the database id, but you can make your own id system for your project)
-app.get('/posts/:id', (req, res) => {
-	/// req.params has the wildcard parameters in the url, in this case, id.
-	// log(req.params.id)
-	const id = req.params.id
-
-	// Good practise: Validate id immediately.
-	if (!ObjectID.isValid(id)) {
-		res.status(404).send()  // if invalid id, definitely can't find resource, 404.
-	}
-
-  // Otherwise, findById
-  // TODO
-	// Post.findById(id).then((post) => {
-	// 	if (!post) {
-	// 		res.status(404).send()  // could not find this student
-	// 	} else {
-	// 		/// sometimes we wrap returned object in another object:
-	// 		//res.send({student})   
-	// 		res.send(post)
-	// 	}
-	// }).catch((error) => {
-	// 	res.status(500).send()  // server error
-	// })
-
-})
-
-/// a DELETE route to remove a student by their id.
-app.delete('/posts/:id', (req, res) => {
-	const id = req.params.id
-
-	// Validate id
-	if (!ObjectID.isValid(id)) {
-		res.status(404).send()
-	}
-
-	// Delete a student by their id
-	Post.findByIdAndRemove(id).then((post) => {
-		if (!post) {
-			res.status(404).send()
-		} else {   
-			res.send(post)
-		}
-	}).catch((error) => {
-		res.status(500).send() // server error, could not delete.
-	})
-})
-
-// a PATCH route for changing properties of a resource.
-// (alternatively, a PUT is used more often for replacing entire resources).
-app.patch('/posts/:id', (req, res) => {
-	const id = req.params.id
-
-  // TODO
-	// get the updated ___ rating? ____ only from the request body.
-
-	if (!ObjectID.isValid(id)) {
-		res.status(404).send()
-	}
-
-	// Update the post by their id.
-	// Post.findByIdAndUpdate(id, {$set: body}, {new: true}).then((post) => {
-	// 	if (!post) {
-	// 		res.status(404).send()
-	// 	} else {   
-	// 		res.send(post)
-	// 	}
-	// }).catch((error) => {
-	// 	res.status(400).send() // bad request for changing the student.
-	// })
-
 })
 
 
