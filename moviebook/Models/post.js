@@ -1,12 +1,5 @@
-/* User model */
-'use strict';
-
 const mongoose = require('mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
 
-// Making a Mongoose model a little differently: a Mongoose Schema
-// Allows us to add additional functionality.
 const PostSchema = new mongoose.Schema({
 	
 	rating: {
@@ -69,5 +62,4 @@ const PostSchema = new mongoose.Schema({
 // }
 
 // make a model using the User schema
-const Post = mongoose.model('Post', PostSchema)
-module.exports = { Post }
+module.exports = mongoose.model('Post', PostSchema)

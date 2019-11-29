@@ -2,17 +2,9 @@
 const log = console.log
 
 const express = require('express')
-// starting the express server
 const app = express();
-
-// mongoose and mongo connection
 const { mongoose } = require('./db/mongoose')
-
-// import the mongoose models
 const { User } = require('./Models/user')
-
-// to validate object IDs
-const { ObjectID } = require('mongodb')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser') 
@@ -21,6 +13,12 @@ app.use(bodyParser.json())
 // express-session for managing user sessions
 const session = require('express-session')
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//Connect Database
+mongoose.connect("mongodb://localhost")
+const db = mongoose.connection
+db.on('error', (error) => console.error(error))
+db.once('open', () => console.error("Database connected"))
 
 //Post Routes
 const postRouter = require('./routes/postsAPI')
