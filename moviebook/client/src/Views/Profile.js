@@ -56,10 +56,10 @@ class Profile extends React.Component {
                   Average score: 3.5</pre>
               </div>
               <Link to={'./'}> 
-                  <Button>Log out</Button>
+                  <Button color = 'red'>Log out</Button>
                 </Link>
                 <Link to={'./home'}> 
-                  <Button>My Feed</Button>
+                  <Button primary>My Feed</Button>
                 </Link>
             </Grid>
 
@@ -72,9 +72,9 @@ class Profile extends React.Component {
                   <Feed style = {useStyles.feedStyle} events={this.state.recommendations} />
                 </div>
                 <Link to={'./favouritesList'}> 
-                  <button style={{margin: '2%'}}>
+                  <Button secondary style={{margin: '2%'}}>
                       See All
-                  </button>
+                  </Button>
                 </Link>
                 <h3>Watch Later</h3>
                 <Divider orientation="horizontal"/>
