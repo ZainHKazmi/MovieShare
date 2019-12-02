@@ -110,6 +110,7 @@ class Home extends React.Component {
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
+                addPost={this.addPost}
             />
             </div>
             {/*Makes the feed using the posts*/}
