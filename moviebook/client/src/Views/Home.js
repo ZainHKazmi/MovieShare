@@ -38,34 +38,13 @@ class Home extends React.Component {
         date: '1 month ago',
         image: '../../Assets/tim.png',
         meta: <Rating defaultRating={1} maxRating={5} disabled /> ,
-        summary: <Feed.User> Tim recommended Avatar</Feed.User>,
+        summary: 'Tim recommended Avatar',
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
       },
     ],
 
     // username: `${this.props.location.state.username}`
     username: "User"
-  }
-  addPost = () => {
-    const postList = this.state.posts
-    const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
-
-	  // Requires server call to get movie info
-    const newPost = {
-      date: this.state.date,
-      image: this.state.userPic,
-      meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
-      summary: newSummary,
-      extraImages: [`${this.state.movieLink}`]
-    }
-
-  
-    postList.unshift(newPost)
-
-    this.setState({
-      posts: postList
-    });
-    
   }
 
   addRating = (movie) => {
@@ -95,9 +74,7 @@ class Home extends React.Component {
             <MuiThemeProvider>
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
-             
-            </Header>
-            <Button.Group floated="right">
+              <Button.Group floated="right">
                 <Link to={'./'}> 
                   <Button color = 'red'>Log out</Button>
                 </Link>
@@ -105,13 +82,13 @@ class Home extends React.Component {
                   <Button color = 'white'>Profile</Button>
                 </Link>
               </Button.Group>
+            </Header>
             <div style = {postStyle}>
             <Post
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
-                addPost={ this.addPost }
             />
             </div>
             {/*Makes the feed using the posts*/}
@@ -131,7 +108,7 @@ const feedStyle = {
   left: '27.5%',
   backgroundImage: 'linear-gradient(to bottom right, #d3e3fc, #FFFFFF)',
   width: '45%',
-  boxShadow: ' 0px 30px 40px 5px #314455'
+  boxShadow: 'inset 0px 0px 10px 5px #77a6f7'
 
   
 }
@@ -139,10 +116,11 @@ const feedStyle = {
 const headerStyle = {
   color: 'white', 
   textAlign: 'center',
-  marginLeft: '0%',
+  marginLeft: '10%',
   lineHeight: 2,
   fontSize: '50px',
   backgroundImage: 'linear-gradient(to right, #77a6f7, #00887a)',
+  boxShadow: 'inset 0px 0px 10px 10px #77a6f7'
 }
 
 const postStyle = {
@@ -152,6 +130,6 @@ const postStyle = {
 }
 
 const bgStyle = {
-  backgroundImage: 'linear-gradient(to bottom right, #77a6f7, black)',
+  backgroundImage: 'linear-gradient(to bottom right, #77a6f7, #77a6f7)',
 }
 export default Home;
