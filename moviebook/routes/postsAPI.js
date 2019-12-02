@@ -1,7 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-const Post = require('../Models/post')
+const { Post } = require('../Models/post')
 
 // to validate object IDs
 const { ObjectID } = require('mongodb')
@@ -29,7 +29,7 @@ router.post('/', async (req, res)=>{
     })
     try{
         const newPost = await post.save()
-        res.status(201).json(newPost)
+        res.status(200).json(newPost)
     }catch(err){
         res.status(400).json({messge: err.message})
     }

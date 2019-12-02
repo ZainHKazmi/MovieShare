@@ -61,5 +61,6 @@ const PostSchema = new mongoose.Schema({
 // 	})
 // }
 
-// make a model using the User schema
-module.exports = mongoose.model('Post', PostSchema)
+// make a model using the Post schema
+const Post = mongoose.model('Post', PostSchema)
+module.exports = { Post }
