@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import {Feed, Header, Rating, Button} from 'semantic-ui-react'
+import {Feed, Rating, Button, Divider} from 'semantic-ui-react'
 // import components
 import Post from '../Components/Post'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { addPost } from '../Actions/post'
-
+import AppBar from 'material-ui/AppBar'
 
 
 class Home extends React.Component {
@@ -90,30 +90,28 @@ class Home extends React.Component {
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
             <MuiThemeProvider>
-            <Header as='h1' style = {headerStyle}>
-              {this.state.username}'s Feed
-             
-            </Header>
-            <Button.Group floated="right">
-                <Link to={'./'}> 
-                  <Button color = 'red'>Log out</Button>
-                </Link>
-                <Link to={'./profile'}> 
-                  <Button color = 'white'>Profile</Button>
-                </Link>
-              </Button.Group>
-            <div style = {postStyle}>
-            <Post
-                movieTitle={this.movieTitle}
-                movieLink={this.movieLink}
-                handleChange={ this.handleInputChange } 
-                handleRate= {this.handleRate}
-                addNewPost={this.addNewPost}
-            />
-            </div>
-            {/*Makes the feed using the posts*/}
-            <div>
-              <Feed style = {feedStyle} events={this.state.posts} />
+            <AppBar as='h1' style = {headerStyle} title={`${this.state.username}'s Feed`}>
+                <Button.Group floated="right" style={{marginTop: "10px"}}>
+                  <Link to={'./profile'}> 
+                    <Button color = 'white' style={{marginRight: "5px"}}>Profile</Button>
+                  </Link>
+                  <Link to={'./'}> 
+                    <Button color = 'red'>Log out</Button>
+                  </Link>
+                </Button.Group>
+            </AppBar>
+            
+            <div style = {feedStyle} >
+              <br/>
+                <Post
+                    movieTitle={this.movieTitle}
+                    movieLink={this.movieLink}
+                    handleChange={ this.handleInputChange } 
+                    handleRate= {this.handleRate}
+                    addNewPost={this.addNewPost}
+                />
+              <Feed style={{marginTop: 30, marginLeft: "10%"}} events={this.state.posts} />
+              
             </div>
             {/* Write post */}
             {/* Posts */}
@@ -125,27 +123,28 @@ class Home extends React.Component {
 const feedStyle = {
   position: 'relative',
   size: 'large',
-  left: '27.5%',
-  backgroundImage: 'linear-gradient(to bottom right, #d3e3fc, #FFFFFF)',
-  width: '45%',
-  boxShadow: ' 0px 30px 40px 5px #314455'
-
-  
+  left: '20%',
+  backgroundColor: 'white',
+  marginTop: '10px',
+  width: '60%',  
+  backgroundImage: 'linear-gradient(to bottom left, #77a6f9, #d3e3fc)',
+  // boxShadow: ' 0px 30px 40px 5px #314455',
+  // backgroundImage: 'linear-gradient(to bottom right, #d3e3fc, #FFFFFF)',
 }
 
 const headerStyle = {
   color: 'white', 
-  textAlign: 'center',
   marginLeft: '0%',
   lineHeight: 2,
-  fontSize: '50px',
+  fontSize: '30px',
   backgroundImage: 'linear-gradient(to right, #77a6f7, #00887a)',
 }
 
 const postStyle = {
   position: 'relative',
-  left: '40%',
+  left: '27.5%',
   width: "45%",
+  marginTop: "10px"
 }
 
 const bgStyle = {
