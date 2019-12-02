@@ -97,10 +97,10 @@ class Home extends React.Component {
               {this.state.username}'s Feed
               <Button.Group floated="right">
                 <Link to={'./'}> 
-                  <Button>Log out</Button>
+                  <Button color = 'red'>Log out</Button>
                 </Link>
                 <Link to={'./profile'}> 
-                  <Button>Profile</Button>
+                  <Button color = 'white'>Profile</Button>
                 </Link>
               </Button.Group>
             </Header>
@@ -140,7 +140,8 @@ const headerStyle = {
   marginLeft: '10%',
   lineHeight: 2,
   fontSize: '50px',
-  background: '#77a6f7',
+  backgroundImage: 'linear-gradient(to right, #77a6f7, #00887a)',
+  boxShadow: 'inset 0px 0px 10px 10px #77a6f7'
 }
 
 const postStyle = {
