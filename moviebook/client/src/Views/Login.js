@@ -61,7 +61,7 @@ class Login extends React.Component {
           <AppBar title="MovieShare"> 
           </AppBar> 
             
-            <div style={{display:'flex', flexDirection:'row', height: "100vh", backgroundImage: 'linear-gradient(to bottom left, #77a6f9, #d3e3fc)'}}>
+            <div style={{display:'flex', flexDirection:'row', height: "100vh", backgroundImage: 'linear-gradient(to bottom left, #77a6f7, black)'}}>
               <Carousel  interval={3000} style={{padding:0, margin:0}}>
                   <Carousel.Item>
                     <div className="carouselPic" style={{height:"90vh"}}>
@@ -91,7 +91,7 @@ class Login extends React.Component {
                   </Carousel.Item>
                 </Carousel>
             
-            <Card style={{margin: 20, height: "500px", backgroundColor: 'transparent'}}>
+            <Card style={{margin: 20, height: "500px",backgroundImage: 'linear-gradient(to bottom right, #FFFFFF, #d3e3fc)'}}>
               <CardContent style={{margin: 65}}>
                 <TextField
                   id="username"
