@@ -6,6 +6,7 @@ import {
   Card,
   Grid,
   CardContent,
+  CardMedia,
   Typography
 } from '@material-ui/core'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -58,40 +59,68 @@ class Login extends React.Component {
       <div>
         <MuiThemeProvider>
           <AppBar title="MovieShare"> 
-            <div style={{alignContent: 'right', marginTop: "-15px"}}>
-            <TextField
+          </AppBar> 
+            
+            <div style={{display:'flex', flexDirection:'row', height: "100vh", backgroundImage: 'linear-gradient(to bottom left, #77a6f9, #d3e3fc)'}}>
+              <Carousel  interval={3000} style={{padding:0, margin:0}}>
+                  <Carousel.Item>
+                    <div className="carouselPic" style={{height:"90vh"}}>
+                    <img className="d-block h-100" src ='../../Assets/Movie-banner.jpg' alt = "First Slide"/>
+                    </div>
+                    <Carousel.Caption>
+                      <h1>Discover what your friends are watching</h1>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <div className="carouselPic" style={{height:"90vh"}}>
+                      <img className="d-block h-100" src ='../../Assets/dunkirk-banner.jpg' alt = "Second Slide"/>
+                    </div>
+                      <Carousel.Caption>
+                        <h1>Keep track of what to watch</h1>
+                      </Carousel.Caption>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <div className="carouselPic" style={{height:"90vh"}}>
+                      <img className="d-block h-100" src ='../../Assets/Joker-Banner2.jpg' alt = "Third Slide"/>
+                    </div>  
+                    <Carousel.Caption>
+                      <h1>Get the hottest recommendations</h1>
+                  </Carousel.Caption>
+                  </Carousel.Item>
+                </Carousel>
+            
+            <Card style={{margin: 20, height: "500px", backgroundColor: 'transparent'}}>
+              <CardContent style={{margin: 65}}>
+                <TextField
                   id="username"
                   margin="dense"
                   hintText="Enter your Username"
                   floatingLabelText="Username"
                   onChange = {(event, value) => this.setState({username:value})}
                   style={{marginRight: "10px"}}
-            />
-            <TextField
-                id="password"
-                variant="outlined"
-                type="password"
-                hintText="Enter your Password"
-                floatingLabelText="Password"
-                onChange = {(event, value) => this.setState({password:value})}
-                style={{marginRight: "10px"}}
-            />
-            {/* <p style ={ style.login }>{this.state.error}</p> */}
-            <Button onClick={ this.checkCreds } style = { style.login }>
-              sign in
-            </Button>
+                />
+                <TextField
+                    id="password"
+                    variant="outlined"
+                    type="password"
+                    hintText="Enter your Password"
+                    floatingLabelText="Password"
+                    onChange = {(event, value) => this.setState({password:value})}
+                    style={{marginRight: "10px"}}
+                />
+                <p style ={ style.login }>{this.state.error}</p>
+                <Button onClick={ this.checkCreds } style = { style.login }>
+                  sign in
+                </Button>
+                <Button onClick={ this.checkCreds } style = { style.login }>
+                  register
+                </Button>
+              </CardContent>
+            </Card>
             </div>
-          </AppBar> 
-          <div style={{display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: 'center'}}>
-            <BackgroundSlideshow 
-              images={[ 
-                '../../Assets/Joker-Banner.jpg', 
-                '../../Assets/dunkirk-banner.jpg', 
-                '../../Assets/Movie-banner.jpg' ]}
-              animationDelay={3000} 
-              style={{height: "100vh"}}
-            /> 
-          </div>
+            
         </MuiThemeProvider>
       </div>
     );
@@ -105,8 +134,8 @@ const style = {
     height: "90%"
   },
   login: {
-    marginRight: '-15px',
-    background: 'clear'
+    marginRight: '10px',
+    background: 'lightblue'
   },
 };
 
