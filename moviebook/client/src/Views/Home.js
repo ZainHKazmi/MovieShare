@@ -47,6 +47,27 @@ class Home extends React.Component {
     username: "User"
   }
 
+  addPost = () => {
+    const postList = this.state.posts
+    const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
+
+	  // Requires server call to get movie info
+    const newPost = {
+      date: this.state.date,
+      image: this.state.userPic,
+      meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
+      summary: newSummary,
+      extraImages: [`${this.state.movieLink}`]
+    }
+
+    postList.unshift(newPost)
+
+    this.setState({
+      posts: postList
+    });
+    
+  }
+
   addRating = (movie) => {
 
   }
@@ -89,6 +110,7 @@ class Home extends React.Component {
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
+                addPost={this.addPost}
             />
             </div>
             {/*Makes the feed using the posts*/}
