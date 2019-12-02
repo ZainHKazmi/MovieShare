@@ -31,7 +31,7 @@ class Post extends React.Component {
     console.log(this.props)            
     return (
       <div>
-        <Card style={{width:"80%", marginLeft:"10%"}}>
+        <Card style={postStyle}>
           <Card.Content style={{width:"80%", marginLeft:"10%"}}>
             <Card.Header>What have you recently watched?</Card.Header>
             <Card.Description>
@@ -41,7 +41,7 @@ class Post extends React.Component {
                       type="text" 
                       placeholder="Movie Title" />
             </Card.Description>
-            <Button onClick={this.addPost}>Post</Button>
+            <Button marginTop = '100px' primary onClick={this.addPost}>Post</Button>
             <span>
               <Rating icon='star' defaultRating={0} maxRating={5} onRate={this.props.handleRate} />
             </span>
@@ -52,4 +52,11 @@ class Post extends React.Component {
   }
 }
 
+const postStyle = {
+  width:"50%", 
+  marginLeft:"0%", 
+  backgroundImage: 'linear-gradient(to bottom left, #77a6f9, #d3e3fc)',
+  boxShadow: ' 0px 0px 10px 10px #77a6f7'
+
+}
 export default Post;

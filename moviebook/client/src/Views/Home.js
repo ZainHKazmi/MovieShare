@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {Feed, Header, Rating, Button} from 'semantic-ui-react'
 // import components
 import Post from '../Components/Post'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 
 
@@ -67,10 +68,10 @@ class Home extends React.Component {
 
   render() {
     return (
-        <div style={{backgroundColor: '#77a6f7'}}>
+        <div style={bgStyle}>
             {/* Includes header, write post component, and multiple Post components */}
             {/* Header */}
-            
+            <MuiThemeProvider>
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
               <Button.Group floated="right">
@@ -96,7 +97,7 @@ class Home extends React.Component {
             </div>
             {/* Write post */}
             {/* Posts */}
-            
+            </MuiThemeProvider>
         </div>
     );
   }
@@ -105,22 +106,29 @@ const feedStyle = {
   position: 'relative',
   size: 'large',
   left: '27.5%',
-  background: '#d3e3fc',
+  backgroundImage: 'linear-gradient(to bottom right, #d3e3fc, #FFFFFF)',
   width: '45%',
+  boxShadow: 'inset 0px 0px 10px 5px #77a6f7'
+
   
 }
 
 const headerStyle = {
-  color: '#00887a', 
+  color: 'white', 
   textAlign: 'center',
+  marginLeft: '10%',
   lineHeight: 2,
   fontSize: '50px',
-  background: '#ececec',
+  background: '#77a6f7',
 }
 
 const postStyle = {
   position: 'relative',
   left: '40%',
   width: "45%",
+}
+
+const bgStyle = {
+  backgroundImage: 'linear-gradient(to bottom right, #77a6f7, #77a6f7)',
 }
 export default Home;
