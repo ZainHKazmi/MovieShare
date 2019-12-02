@@ -76,10 +76,10 @@ class Home extends React.Component {
               {this.state.username}'s Feed
               <Button.Group floated="right">
                 <Link to={'./'}> 
-                  <Button>Log out</Button>
+                  <Button color = 'red'>Log out</Button>
                 </Link>
                 <Link to={'./profile'}> 
-                  <Button>Profile</Button>
+                  <Button color = 'white'>Profile</Button>
                 </Link>
               </Button.Group>
             </Header>
