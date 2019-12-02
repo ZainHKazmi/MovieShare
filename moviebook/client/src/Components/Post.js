@@ -33,7 +33,7 @@ const postStyle = {
   width:"50%", 
   marginLeft:"0%", 
   backgroundImage: 'linear-gradient(to bottom left, #77a6f9, #d3e3fc)',
-  boxShadow: ' 0px 0px 10px 10px #77a6f7'
+  boxShadow: ' 0px 10px 40px 5px #314455'
 
 }
 export default Post;

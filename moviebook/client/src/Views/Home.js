@@ -38,7 +38,7 @@ class Home extends React.Component {
         date: '1 month ago',
         image: '../../Assets/tim.png',
         meta: <Rating defaultRating={1} maxRating={5} disabled /> ,
-        summary: 'Tim recommended Avatar',
+        summary: <Feed.User> Tim recommended Avatar</Feed.User>,
         extraImages: ['https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg'],
       },
     ],
@@ -46,7 +46,6 @@ class Home extends React.Component {
     // username: `${this.props.location.state.username}`
     username: "User"
   }
-
   addPost = () => {
     const postList = this.state.posts
     const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
@@ -60,6 +59,7 @@ class Home extends React.Component {
       extraImages: [`${this.state.movieLink}`]
     }
 
+  
     postList.unshift(newPost)
 
     this.setState({
@@ -95,7 +95,9 @@ class Home extends React.Component {
             <MuiThemeProvider>
             <Header as='h1' style = {headerStyle}>
               {this.state.username}'s Feed
-              <Button.Group floated="right">
+             
+            </Header>
+            <Button.Group floated="right">
                 <Link to={'./'}> 
                   <Button color = 'red'>Log out</Button>
                 </Link>
@@ -103,14 +105,13 @@ class Home extends React.Component {
                   <Button color = 'white'>Profile</Button>
                 </Link>
               </Button.Group>
-            </Header>
             <div style = {postStyle}>
             <Post
                 movieTitle={this.movieTitle}
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
-                addPost={this.addPost}
+                addPost={ this.addPost }
             />
             </div>
             {/*Makes the feed using the posts*/}
@@ -130,7 +131,7 @@ const feedStyle = {
   left: '27.5%',
   backgroundImage: 'linear-gradient(to bottom right, #d3e3fc, #FFFFFF)',
   width: '45%',
-  boxShadow: 'inset 0px 0px 10px 5px #77a6f7'
+  boxShadow: ' 0px 30px 40px 5px #314455'
 
   
 }
@@ -138,11 +139,10 @@ const feedStyle = {
 const headerStyle = {
   color: 'white', 
   textAlign: 'center',
-  marginLeft: '10%',
+  marginLeft: '0%',
   lineHeight: 2,
   fontSize: '50px',
   backgroundImage: 'linear-gradient(to right, #77a6f7, #00887a)',
-  boxShadow: 'inset 0px 0px 10px 10px #77a6f7'
 }
 
 const postStyle = {
@@ -152,6 +152,6 @@ const postStyle = {
 }
 
 const bgStyle = {
-  backgroundImage: 'linear-gradient(to bottom right, #77a6f7, #77a6f7)',
+  backgroundImage: 'linear-gradient(to bottom right, #77a6f7, black)',
 }
 export default Home;
