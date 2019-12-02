@@ -18,7 +18,7 @@ class Post extends React.Component {
                       type="text" 
                       placeholder="Movie Title" />
             </Card.Description>
-            <Button primary onClick={this.props.addPost}>Post</Button>
+            <Button primary onClick={this.props.addNewPost}>Post</Button>
             <span>
               <Rating icon='star' defaultRating={0} maxRating={5} onRate={this.props.handleRate} />
             </span>

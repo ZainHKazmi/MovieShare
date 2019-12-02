@@ -5,13 +5,14 @@ import {Feed, Header, Rating, Button} from 'semantic-ui-react'
 // import components
 import Post from '../Components/Post'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { addPost } from '../Actions/post'
 
 
 
 class Home extends React.Component {
 
   state = {
-    movieTitle: "",
+    movieTitle: null,
     movieLink: 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png',
     userRating: 0,
     userPic: 'https://i.stack.imgur.com/34AD2.jpg',
@@ -47,7 +48,7 @@ class Home extends React.Component {
     username: "User"
   }
 
-  addPost = () => {
+  addNewPost = async () => {
     const postList = this.state.posts
     const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
 
@@ -65,27 +66,22 @@ class Home extends React.Component {
     this.setState({
       posts: postList
     });
+    // add to DB
+    await addPost(this.state.movieTitle, this.state.userRating)
     
-  }
-
-  addRating = (movie) => {
-
   }
   
   handleInputChange = (event) => {
     const target = event.target
     const value = target.value
-    const name = target.name
+    // const name = target.name
+    console.log(value)
     
-    // 'this' is bound to the component in this arrow function.
-    this.setState({
-      [name]: value  // [name] sets the object property name to the value of the 'name' variable.
-    })
+    this.setState({ movieTitle: value })
 
   }
 
-  handleRate = (e, { rating }) => 
-      this.setState({ userRating: rating })
+  handleRate = (e, { rating }) => this.setState({ userRating: rating })
 
   render() {
     return (
@@ -110,7 +106,7 @@ class Home extends React.Component {
                 movieLink={this.movieLink}
                 handleChange={ this.handleInputChange } 
                 handleRate= {this.handleRate}
-                addPost={this.addPost}
+                addNewPost={this.addNewPost}
             />
             </div>
             {/*Makes the feed using the posts*/}

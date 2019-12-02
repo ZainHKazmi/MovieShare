@@ -28,7 +28,7 @@
 
 export const addPost = async (movie, rating) => {
     // the URL for the request
-    const url = "/post";
+    const url = "/posts";
 
     // The data we are going to send in our request
     const newPost = {
@@ -36,12 +36,14 @@ export const addPost = async (movie, rating) => {
         rating: rating
     }
 
+    console.log(JSON.stringify(newPost))
+
     // Create our request constructor with all the parameters we need
     const request = new Request(url, {
-        method: "post",
+        method: "POST",
         body: JSON.stringify(newPost),
         headers: {
-            Accept: "application/json, text/plain, */*",
+            "Accept": "application/json, text/plain, */*",
             "Content-Type": "application/json"
         }
     });
