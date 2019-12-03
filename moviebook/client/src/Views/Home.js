@@ -53,29 +53,33 @@ class Home extends React.Component {
     const postList = this.state.posts
     axios.get(`http://www.omdbapi.com/?t=${this.state.movieTitle}&apikey=b48abe3`)
         .then(res => {
-         const movieTitle = res.data.Title;
-         const movieLink = res.data.Poster;
+          if (res.data.Response === "True"){
+            const movieTitle = res.data.Title;
+            const movieLink = res.data.Poster;
+              
+            const newSummary = this.state.username.concat(" recommended ", movieTitle)
+
+            const newPost = {
+              date: this.state.date,
+              image: this.state.userPic,
+              meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
+              summary: newSummary,
+              extraImages: [`${movieLink}`]
+            }
+        
+        
           
-         const newSummary = this.state.username.concat(" recommended ", movieTitle)
-
-         const newPost = {
-          date: this.state.date,
-          image: this.state.userPic,
-          meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
-          summary: newSummary,
-          extraImages: [`${movieLink}`]
-        }
-    
-    
-      
-        postList.unshift(newPost)
+            postList.unshift(newPost)
 
 
-        this.setState({
-          movieTitle: movieTitle,
-          movieLink: movieLink,
-          posts: postList,
-        });
+            this.setState({
+              movieTitle: movieTitle,
+              movieLink: movieLink,
+              posts: postList,
+            });
+
+          }
+         
        })
    
     
