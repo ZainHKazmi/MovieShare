@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.router();
+var router = express.Router();
 var axios = require('axios');
 		
 
@@ -10,6 +10,7 @@ async function getfromOMDB(moviename){
 		async(req,res) => {
 			try {
 				console.log(res.data);
+				var movieData = res.data;
 			} catch(err){
 			res.status(400).json({messge: err.message});
 			}
@@ -21,17 +22,20 @@ async function getfromOMDB(moviename){
 		async(req,res) => {
             try {
 		    	console.log(res.data);
+		    	var pic = res.data;
             } catch(err) {
 				res.status(400).json({messge: err.message});
 			 }
 		}
 	);
 
-	return {}
+	return [movieData, pic];
 
 }
 module.exports = router;
 
+/*
 export const ExternalRoutes = {
 	getfromOMDB
 };
+*/

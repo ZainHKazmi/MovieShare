@@ -21,6 +21,7 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.error("Database connected"))
 
 //Post Routes
+const externAPI = require('./routes/externAPI')
 const postRouter = require('./routes/postsAPI')
 app.use('/posts', postRouter)
 
