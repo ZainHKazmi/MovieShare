@@ -7,13 +7,14 @@ import Post from '../Components/Post'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { addPost } from '../Actions/post'
 import AppBar from 'material-ui/AppBar'
+import axios from "axios"
 
 
 class Home extends React.Component {
 
   state = {
-    movieTitle: null,
-    movieLink: 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png',
+    movieTitle: '',
+    movieLink: '',
     userRating: 0,
     userPic: 'https://i.stack.imgur.com/34AD2.jpg',
     date: 'Today',
@@ -50,33 +51,46 @@ class Home extends React.Component {
 
   addNewPost = async () => {
     const postList = this.state.posts
-    const newSummary = this.state.username.concat(" recommended ", this.state.movieTitle)
+    axios.get(`http://www.omdbapi.com/?t=${this.state.movieTitle}&apikey=b48abe3`)
+        .then(res => {
+         const movieTitle = res.data.Title;
+         const movieLink = res.data.Poster;
+          
+         const newSummary = this.state.username.concat(" recommended ", movieTitle)
 
-	  // Requires server call to get movie info
-    const newPost = {
-      date: this.state.date,
-      image: this.state.userPic,
-      meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
-      summary: newSummary,
-      extraImages: [`${this.state.movieLink}`]
-    }
+         const newPost = {
+          date: this.state.date,
+          image: this.state.userPic,
+          meta: <Rating defaultRating={this.state.userRating} maxRating={5} disabled />,
+          summary: newSummary,
+          extraImages: [`${movieLink}`]
+        }
+    
+    
+      
+        postList.unshift(newPost)
 
-  
-    postList.unshift(newPost)
 
-    this.setState({
-      posts: postList
-    });
+        this.setState({
+          movieTitle: movieTitle,
+          movieLink: movieLink,
+          posts: postList,
+        });
+       })
+   
+    
+
+    
     // add to DB
     await addPost(this.state.movieTitle, this.state.userRating)
     
   }
-  
+
+
   handleInputChange = (event) => {
     const target = event.target
     const value = target.value
     // const name = target.name
-    console.log(value)
     
     this.setState({ movieTitle: value })
 

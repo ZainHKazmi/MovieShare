@@ -5,28 +5,7 @@ import { TextField } from 'material-ui';
 import { Avatar} from '@material-ui/core'
 
 class Post extends React.Component {
-    /*
-    state = {
-	     movie: []
-	     moviePic : []
-	
-	}
-	componentDidMount(){
-	
-	axios.get('http://www.omdbapi.com/?s='+ this.props.movieTitle + '&apikey=b48abe3')
-		  .then(res => {
-		 	const movie_ret = res.data;
-			this.setState({movie: movie_ret,});
-		 })
-	
-	axios.get('http://img.omdbapi.com/?s=' + moviename + '&apikey=b48abe3'){
-		.then(res => {
-			const pic = res.data;
-			this.setState({moviePic: pic,});
-		})
- 
-  }
-  */
+
   render() {
     //const { addRating, imgLink, movieTitle } = this.props
     console.log(this.props)            
