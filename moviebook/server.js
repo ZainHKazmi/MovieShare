@@ -24,6 +24,7 @@ db.once('open', () => console.error("Database connected"))
 const externAPI = require('./routes/externAPI')
 const postRouter = require('./routes/postsAPI')
 app.use('/posts', postRouter)
+app.use(externAPI)
 
 /*** Session handling **************************************/
 // Create a session cookie
