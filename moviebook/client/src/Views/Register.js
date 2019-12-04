@@ -36,7 +36,34 @@ class Register extends React.Component {
 }
 
   
-  
+  addUser = async() => {
+      const url = "/users";
+      const newUser = {
+	  email: this.state.username,
+	  password: this.state.password
+       }
+
+
+       const request = new Request(url, {
+           method: "POST",
+	   body: JSON.stringify(newUser),
+	   headers: {
+		"Accept": "application/json, text/plain, */*",
+		"Content-Type": "application/json"
+	
+           }
+       });
+
+       await fetch(request).then(function(res) {
+           if (res.status === 200){
+      		console.log(res.data)
+		return res.data
+           } else {
+		throw("Could Not add new user")
+	   }
+       
+       }).catch(error => { console.log(error);});
+  }
 
   checkCreds = async (e) => {
     e.preventDefault();
@@ -46,6 +73,7 @@ class Register extends React.Component {
 	  // Requires server call to ascertain user creds
     if (this.state.confirmPassword.valueOf() === this.state.password.valueOf()){
       this.props.history.push('/home')
+       await this.addUser()
     } else {
       return this.setState({error: "Passwords do not match"})
     }
