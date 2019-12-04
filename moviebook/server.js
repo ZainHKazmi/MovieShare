@@ -80,7 +80,19 @@ app.delete('/users/:id', (req, res) => {
 		res.status(500).send() 
 	})
 })
-
+app.post('/users', async (req, res)=>{
+    const user = new User({
+	email: req.body.username,
+	password: req.body.password
+    })
+    res.push(user)
+    const newUser = await res.save()
+    try{
+        res.status(201).json(newUser)
+    }catch(err){
+	res.status(400).json({message: err.message})
+    }
+})
 //Get all Posts 
 app.get('/users/:id/posts', getUser, async (req, res) =>{
     res.json(res.user.userPosts)
