@@ -1,27 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
-import { Button } from '@material-ui/core'
+import { 
+  Button,
+  Card,
+  Grid,
+  CardContent,
+  CardMedia,
+  Typography
+} from '@material-ui/core'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
-import Home from './Home'
-import Admin from './Admin'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Carousel } from 'react-bootstrap'
 import '../App.css';
+import BackgroundSlideshow from 'react-background-slideshow'
+import { spacing } from '@material-ui/system'
+
+
 
 class Login extends React.Component {
 
-  ///  React 'state'.  
-  // Allows us to keep track of changing data in this component.
-  state = {
-    username: "",
-    password: "",
-    friends: [],
-    userLoggedIn: false,
-    adminLoggedIn: false,
-    next_page: '/login'
-  }
+  constructor(props) {
+    super(props);
+
+
+    ///  React 'state'.  
+    // Allows us to keep track of changing data in this component.
+    this.state = {
+      username: "",
+      password: "",
+      friends: [],
+    }
+    
+}
+
+  
   
 
   checkCreds = async (e) => {
@@ -31,26 +45,26 @@ class Login extends React.Component {
     console.log(this.state.password.valueOf() === "user")
 	  // Requires server call to ascertain user creds
     if (this.state.username.valueOf() === "user" && this.state.password.valueOf() === "user"){
-      console.log("what is HAPPENING.")
-      await this.setState({ next_page: '/home', userLoggedIn: true })
-      // this.setState({ userLoggedIn: true })
+      this.props.history.push('/home')
     } else if (this.state.username.valueOf() === "admin" && this.state.password.valueOf() === "admin"){
-      this.setState({ next_page: '/admin' })
-      this.setState({ adminLoggedIn: true })
-    } 
-    console.log(this.state)
+      this.props.history.push('/admin')
+    } else {
+      return this.setState({error: "Wrong credentials. Try again"})
+    }
 
   }
 
   render() {
     return (
-        <div>
-            <MuiThemeProvider>
-            <AppBar title="MovieShare"/> 
-              <div style = { style.carousel }>
-                <Carousel className= "carousel" interval={3000}>
+      <div>
+        <MuiThemeProvider>
+          <AppBar title="MovieShare"> 
+          </AppBar> 
+            
+            <div style={{display:'flex', flexDirection:'row', height: "100vh", backgroundImage: 'linear-gradient(to bottom left, #77a6f7, black)'}}>
+              <Carousel  interval={3000} style={{padding:0, margin:0}}>
                   <Carousel.Item>
-                    <div className="carouselPic">
+                    <div className="carouselPic" style={{height:"90vh"}}>
                     <img className="d-block h-100" src ='../../Assets/Movie-banner.jpg' alt = "First Slide"/>
                     </div>
                     <Carousel.Caption>
@@ -59,56 +73,70 @@ class Login extends React.Component {
                   </Carousel.Item>
 
                   <Carousel.Item>
-                      <img className="d-block w-100" src ='../../Assets/dunkirk-banner.jpg' alt = "Second Slide"/>
+                    <div className="carouselPic" style={{height:"90vh"}}>
+                      <img className="d-block h-100" src ='../../Assets/dunkirk-banner.jpg' alt = "Second Slide"/>
+                    </div>
                       <Carousel.Caption>
                         <h1>Keep track of what to watch</h1>
                       </Carousel.Caption>
                   </Carousel.Item>
 
                   <Carousel.Item>
-                    <img className="d-block w-100" src ='../../Assets/Joker-Banner.jpg' alt = "Third Slide"/>
+                    <div className="carouselPic" style={{height:"90vh"}}>
+                      <img className="d-block h-100" src ='../../Assets/Joker-Banner2.jpg' alt = "Third Slide"/>
+                    </div>  
                     <Carousel.Caption>
                       <h1>Get the hottest recommendations</h1>
                   </Carousel.Caption>
                   </Carousel.Item>
                 </Carousel>
-              </div>
-                
-              <div style = {{ marginLeft: '37%' }}> 
+            
+            <Card style={{margin: 20, height: "500px",backgroundImage: 'linear-gradient(to bottom right, #FFFFFF, #d3e3fc)'}}>
+              <CardContent style={{margin: 65}}>
                 <TextField
-                    id="username"
-                    hintText="Enter your Username"
-                    floatingLabelText="Username"
-                    onChange = {(event, value) => this.setState({username:value})}
+                  id="username"
+                  margin="dense"
+                  hintText="Enter your Username"
+                  floatingLabelText="Username"
+                  onChange = {(event, value) => this.setState({username:value})}
+                  style={{marginRight: "10px"}}
                 />
-                <br/>
                 <TextField
                     id="password"
+                    variant="outlined"
                     type="password"
                     hintText="Enter your Password"
                     floatingLabelText="Password"
                     onChange = {(event, value) => this.setState({password:value})}
+                    style={{marginRight: "10px"}}
                 />
-              </div>
-            </MuiThemeProvider>
-            <br/>
-            <Button onClick={ this.checkCreds } style = { style.login } component={Link} to={this.state.next_page}>
-                sign in
-            </Button>
-        </div>
+                <p style ={ style.login }>{this.state.error}</p>
+                <Button onClick={ this.checkCreds } style = { style.login }>
+                  sign in
+                </Button>
+                <Button onClick={ this.checkCreds } style = { style.login }>
+                  register
+                </Button>
+              </CardContent>
+            </Card>
+            </div>
+            
+        </MuiThemeProvider>
+      </div>
     );
   }
 }
 
 const style = {
   carousel: {
-    marginLeft: '-10%',
-    marginTop: '-4%'
+    marginTop: "10%",
+    width: "100%",
+    height: "90%"
   },
   login: {
-    marginLeft: '37%',
+    marginRight: '10px',
     background: 'lightblue'
-  }  
+  },
 };
 
 export default Login;

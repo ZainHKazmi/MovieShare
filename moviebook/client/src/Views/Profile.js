@@ -38,7 +38,7 @@ class Profile extends React.Component {
   render() {
     return (
         
-        <div style={{backgroundColor: '#f3f3f3'}}>
+        <div style={{backgroundImage: 'linear-gradient(to bottom right, #77a6f7, black)'}}>
           <Container maxWidth="xl">
           <Grid container justify="space-evenly">
             <Grid item xs={4} style={useStyles.colStyle} >
@@ -56,10 +56,10 @@ class Profile extends React.Component {
                   Average score: 3.5</pre>
               </div>
               <Link to={'./'}> 
-                  <Button>Log out</Button>
+                  <Button color = 'red'>Log out</Button>
                 </Link>
                 <Link to={'./home'}> 
-                  <Button>My Feed</Button>
+                  <Button primary>My Feed</Button>
                 </Link>
             </Grid>
 
@@ -72,9 +72,9 @@ class Profile extends React.Component {
                   <Feed style = {useStyles.feedStyle} events={this.state.recommendations} />
                 </div>
                 <Link to={'./favouritesList'}> 
-                  <button style={{margin: '2%'}}>
+                  <Button secondary style={{margin: '2%'}}>
                       See All
-                  </button>
+                  </Button>
                 </Link>
                 <h3>Watch Later</h3>
                 <Divider orientation="horizontal"/>
@@ -105,23 +105,29 @@ const useStyles = {
     left: '30%',
     width: 130,
     height: 130,
+    boxShadow: ' 0px 10px 70px 0px #314455',
+
   },
   friends: {
     margin: 10,
     width: 80,
     height: 80,
+    boxShadow: ' 0px 10px 40px 0px #314455',
+
   },
   colStyle: {
     alignText: 'center',
-    backgroundColor: '#F2F9FF',
+    backgroundColor: '#d3e3fc',
     marginTop: 20,
   },
   feedStyle: {
     position: 'relative',
     size: 'large',
-    background: 'white',
+    backgroundImage: 'linear-gradient(to bottom left, #FFFFFF, #d3e3fc)',
     marginLeft: '2%',
     marginRight: '2%',
+    borderRadius: '25px',
+    padding: '20px'
   }
   
 }
