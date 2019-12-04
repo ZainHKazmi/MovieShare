@@ -1,5 +1,8 @@
 # Team 44: MovieShare
 
+## Deployed app
+https://movieshare-csc309.herokuapp.com/
+
 ## Prerequisites
 Install Node.js and NPM (https://nodejs.org/en/download/)
 
