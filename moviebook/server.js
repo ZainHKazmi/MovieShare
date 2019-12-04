@@ -95,7 +95,8 @@ app.get('/users/:id/posts/:post_id', getUser, getPost, (req, res) => {
 app.post('/users/:id/posts', getUser, async (req, res)=>{
     const post = new Post({
         movieTitle: req.body.movieTitle,
-        rating: req.body.rating
+        rating: req.body.rating,
+        movieLink: req.body.movieLink
     })
     res.user.userPosts.push(post)
     try{

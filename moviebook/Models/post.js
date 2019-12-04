@@ -11,6 +11,9 @@ const PostSchema = new mongoose.Schema({
 	movieTitle: {
 		type: String
 	},
+	movieLink: {
+		type: String
+	},
 	date: {
 		type: Date, 
 		default: Date.now

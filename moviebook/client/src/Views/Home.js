@@ -66,7 +66,19 @@ class Home extends React.Component {
               summary: newSummary,
               extraImages: [`${movieLink}`]
             }
-        
+
+            const postPost = {
+              rating: this.state.userRating,
+              movieTitle: movieTitle,
+              movieLink: movieLink
+            }
+            
+            axios.post('http://localhost:3002/users/5de71115686291134c6fa346/posts' , { postPost }).then(
+              res => {
+                console.log(res);
+                console.log(res.data);
+              }
+            )
         
           
             postList.unshift(newPost)

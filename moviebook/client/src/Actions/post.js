@@ -26,14 +26,15 @@
 //     setState(`studentForm.${name}`, value);
 // };
 
-export const addPost = async (movie, rating) => {
+export const addPost = async (movie, link, rating) => {
     // the URL for the request
-    const url = "/posts";
+    const url = "http://localhost:3002/users/5de71115686291134c6fa346/posts";
 
     // The data we are going to send in our request
     const newPost = {
         movieTitle: movie,
-        rating: rating
+        rating: rating,
+        movieLink: link
     }
 
     console.log(JSON.stringify(newPost))
