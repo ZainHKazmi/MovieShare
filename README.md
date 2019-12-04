@@ -34,5 +34,5 @@ password: user
 ```
 A user can access the following pages upon logging in:
 
-1. Home -- the user can see posts by friends, and post any updates of his own
+1. Home -- the user can see their movies posted
 2. Profile -- the user can a blurb of his own, as well as access his MovieBook and WatchLater list
