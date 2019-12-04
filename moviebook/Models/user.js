@@ -4,6 +4,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const PostSchema = require('../Models/post').schema
 
 // Making a Mongoose model a little differently: a Mongoose Schema
 // Allows us to add additional functionality.
@@ -23,7 +24,8 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 6
-	}
+	},
+	userPosts: [PostSchema]
 })
 
 // An example of Mongoose middleware.

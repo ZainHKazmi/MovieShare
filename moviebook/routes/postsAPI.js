@@ -2,41 +2,56 @@
 const express = require('express')
 const router = express.Router()
 const Post = require('../Models/post')
-
+const {User} = require('../Models/user')
 // to validate object IDs
 const { ObjectID } = require('mongodb')
 
+//  "/users/:id/posts/:post_id"
+
 //Get all Posts 
-router.get('/', async (req, res) =>{
-    try{
-        const posts = await Post.find()
-        res.json(posts)
-    }catch(err){
-        res.status(500).json({message: err.message})
-    }
+router.get('/', getUser, async (req, res) =>{
+    res.json(res.user.userPosts)
 })
 
 //Getting One
-router.get('/:id', getPost, (req, res) => {
+router.get('/:post_id', getUser, getPost, (req, res) => {
     res.json(res.post)
 })
 
 //Creating One 
-router.post('/', async (req, res)=>{
+router.post('/:id', getUser, async (req, res)=>{
     const post = new Post({
         movieTitle: req.body.movieTitle,
         rating: req.body.rating
     })
+    res.user.userPosts.push(post)
     try{
-        const newPost = await post.save()
+        const newPost = await res.user.save()
         res.status(201).json(newPost)
     }catch(err){
         res.status(400).json({messge: err.message})
     }
 })
 
-//Updating omitted
 
+router.patch('/post/:id', getUser, getPost ,async (req, res) => {
+	// Add code here
+	try{
+		if (req.body.movieTitle != null){
+			res.user.post.movieTitle = req.body.movieTitle  
+		}
+		if (req.body.rating != null){
+			res.user.post.rating = req.body.rating
+		}
+		const patchedPost = await res.user.save()
+		res.send({
+			"user": res.user,
+			"post": res.user.post
+		})
+	}catch(err){
+		res.status(500).json({message: err.message})
+	}
+})
 
 //Delete One
 router.delete('/posts/:id', (req, res) => {
@@ -63,8 +78,8 @@ router.delete('/posts/:id', (req, res) => {
 async function getPost(req, res, next) {
     let post
     try{
-        post = await Post.findById(req.params.id)
-        if (subscriber == null){
+        post = await res.user.userPosts.id(req.params.post_id)
+        if (post == null){
             return res.status(404).json({message: 'Cannot find post'})
         }
     }catch (err){
@@ -73,5 +88,6 @@ async function getPost(req, res, next) {
     res.post = post
     next()
 }
+
 
 module.exports = router 
