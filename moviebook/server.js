@@ -80,7 +80,6 @@ app.delete('/users/:id', (req, res) => {
 		res.status(500).send() 
 	})
 })
-
 //Get all Posts 
 app.get('/users/:id/posts', getUser, async (req, res) =>{
     res.json(res.user.userPosts)

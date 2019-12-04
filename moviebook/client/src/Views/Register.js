@@ -19,7 +19,7 @@ import { spacing } from '@material-ui/system'
 
 
 
-class Login extends React.Component {
+class Register extends React.Component {
 
   constructor(props) {
     super(props);
@@ -36,7 +36,34 @@ class Login extends React.Component {
 }
 
   
-  
+  addUser = async() => {
+      const url = "/users";
+      const newUser = {
+	  email: this.state.username,
+	  password: this.state.password
+       }
+
+
+       const request = new Request(url, {
+           method: "POST",
+	   body: JSON.stringify(newUser),
+	   headers: {
+		"Accept": "application/json, text/plain, */*",
+		"Content-Type": "application/json"
+	
+           }
+       });
+
+       await fetch(request).then(function(res) {
+           if (res.status === 200){
+      		console.log(res.data)
+		return res.data
+           } else {
+		throw("Could Not add new user")
+	   }
+       
+       }).catch(error => { console.log(error);});
+  }
 
   checkCreds = async (e) => {
     e.preventDefault();
@@ -44,12 +71,11 @@ class Login extends React.Component {
     console.log(this.state.username.valueOf() === "user")
     console.log(this.state.password.valueOf() === "user")
 	  // Requires server call to ascertain user creds
-    if (this.state.username.valueOf() === "user" && this.state.password.valueOf() === "user"){
+    if (this.state.confirmPassword.valueOf() === this.state.password.valueOf()){
       this.props.history.push('/home')
-    } else if (this.state.username.valueOf() === "admin" && this.state.password.valueOf() === "admin"){
-      this.props.history.push('/admin')
+       await this.addUser()
     } else {
-      return this.setState({error: "Wrong credentials. Try again"})
+      return this.setState({error: "Passwords do not match"})
     }
 
   }
@@ -96,7 +122,7 @@ class Login extends React.Component {
                 <TextField
                   id="username"
                   margin="dense"
-                  hintText="Enter your Username"
+                  hintText="New Username"
                   floatingLabelText="Username"
                   onChange = {(event, value) => this.setState({username:value})}
                   style={{marginRight: "10px"}}
@@ -105,20 +131,25 @@ class Login extends React.Component {
                     id="password"
                     variant="outlined"
                     type="password"
-                    hintText="Enter your Password"
-                    floatingLabelText="Password"
+                    hintText="New Password"
+                    floatingLabelText="New Password"
                     onChange = {(event, value) => this.setState({password:value})}
                     style={{marginRight: "10px"}}
                 />
+	   	<TextField
+	    	    id="NewPassword"
+	    	    variant = "outlined"
+	    	    type="password"
+	    	    hintText="Confirm New Password"
+	    	    floatingLabelText="Confirm New Password"
+	    	    onChange = {(event, value) => this.setState({confirmPassword:value})}
+	    	    style={{marginRight: "10px"}}
+	    	/>
+	    	
                 <p style ={ style.login }>{this.state.error}</p>
                 <Button onClick={ this.checkCreds } style = { style.login }>
-                  sign in
-                </Button>
-	      	<Link to={'./register'}>
-	    	<Button style = { style.login }>
                   register
                 </Button>
-	    	</Link>
               </CardContent>
             </Card>
             </div>
@@ -141,4 +172,4 @@ const style = {
   },
 };
 
-export default Login;
+export default Register;
