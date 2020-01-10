@@ -1,4 +1,4 @@
-# Team 44: MovieShare
+# MovieShare
 
 ## Deployed app
 https://movieshare-csc309.herokuapp.com/
