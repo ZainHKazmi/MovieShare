@@ -39,3 +39,15 @@ A user can access the following pages upon logging in:
 
 1. Home -- the user can see their movies posted
 2. Profile -- the user can a blurb of his own, as well as access his MovieBook and WatchLater list
+
+## Tech-stack:
+```
+Full-stack web application built on a MERN framework:
+MongoDB
+Express.js
+React.js
+Node.js
+
+Application deployed using Heroku
+```
+
